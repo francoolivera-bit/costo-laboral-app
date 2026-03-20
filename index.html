@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liquidaciones y DDJJ - Costo laboral</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=m9hetQ_085fBh0nuVUj5dxORGDMqJCyk2hJ06CUzpNC5cdCyHUEgF2QgSR79DnZs-ySXNmw7KX8ViEttclVAdCdikLupmmgkYjNMpzmXFN7b0uGAEZhQ6NHPklnSClgSfUJcM3_RH_VK-Q7CSXtN6PtmqgJFWBTdv6PdvmEayovckLoCkklJOkd000k85yqUC3tw4QPKaL4nswUOZT_DsjhVvp4p6lLdXrdwIvihGpeZFtM6r9Da3AIGNy-u14iLGWoYnhYQLzjjzCk7Py8tZQ" charset="UTF-8"></script><style>
+  body {
+    margin: 0;
+    background: #e9e9e9;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+  }
+  .page {
+    width: 860px;
+    margin: 0 auto;
+    background: #efefef;
+    padding-bottom: 18px;
+  }
+  .topbar {
+    padding: 12px 6px 4px 6px;
+  }
+  .topbar h1 {
+    margin: 0 0 6px 0;
+    color: #0d2341;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .crumb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #304f74;
+    font-size: 14px;
+    padding: 0 8px 6px 10px;
+    border-bottom: 1px dotted #8ea2b4;
+    gap: 12px;
+  }
+  .periodo-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .periodo-controls label {
+    color: #436182;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .periodo-controls select {
+    min-width: 86px;
+    height: 26px;
+    border: 1px solid #a9b8c7;
+    background: #fff;
+    color: #23384f;
+    border-radius: 3px;
+  }
+  fieldset {
+    margin: 12px 10px;
+    border: 1px solid #bfc2c6;
+    border-radius: 6px;
+    background: #efefef;
+    padding: 12px 10px 10px 10px;
+  }
+  legend {
+    color: #1d476f;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 4px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 8px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    margin-bottom: 6px;
+  }
+  .row label {
+    width: 165px;
+    text-align: right;
+    padding-right: 6px;
+    color: #436182;
+    font-size: 13px;
+  }
+  .row .inline-label {
+    width: auto;
+    padding-right: 10px;
+  }
+  .req { color: #d43b2c; font-weight: 700; }
+  .box, select, input[type=text], input[type=number] {
+    border: 1px solid #bdb4a8;
+    background: #faf8f4;
+    color: #6a4e34;
+    font-size: 13px;
+    padding: 4px 6px;
+    height: 30px;
+    box-sizing: border-box;
+  }
+  input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1f6fb2;
+  }
+  .box.small, input.small, select.small { width: 58px; }
+  .box.mid, input.mid { width: 135px; }
+  .box.long, select.long { width: 420px; }
+  .box.xlong, select.xlong { width: 570px; }
+  .box.num, input.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .row .text-strong {
+    font-weight: 700;
+    color: #4b6887;
+    font-size: 14px;
+  }
+  .profile-row {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .profile-row label {
+    text-align: right;
+    color: #436182;
+    font-size: 13px;
+    padding-right: 6px;
+  }
+  .profile-row select {
+    width: 570px;
+  }
+  .bases-wrap {
+    padding-top: 2px;
+  }
+  .base-head {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+  }
+  .base-head label {
+    width: 170px;
+    color: #436182;
+    font-size: 13px;
+  }
+  .base-grid {
+    display: grid;
+    grid-template-columns: 520px 190px;
+    row-gap: 6px;
+    column-gap: 16px;
+    align-items: center;
+  }
+  .base-grid .b-label {
+    color: #436182;
+    font-size: 13px;
+    padding-left: 48px;
+  }
+  .base-grid input {
+    width: 190px;
+    text-align: right;
+  }
+  .base-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 10px 0;
+    padding-left: 48px;
+  }
+  .base-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #436182;
+    font-weight: 600;
+  }
+  .base-note {
+    font-size: 12px;
+    color: #6b7c8d;
+  }
+  .editable-base {
+    background: #fffdf2;
+    border-color: #d5b75d;
+    box-shadow: inset 0 0 0 1px rgba(213,183,93,.12);
+  }
+  .triple {
+    display: grid;
+    grid-template-columns: 305px 95px 1fr;
+    column-gap: 16px;
+  }
+  .triple .col-right .row label {
+    width: 190px;
+  }
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+  }
+  .two-cols .row label {
+    width: 210px;
+  }
+  .two-cols .row .box.long {
+    width: 190px;
+  }
+  .os-grid {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    align-items: center;
+    row-gap: 8px;
+  }
+  .os-grid label {
+    text-align: right;
+    color: #436182;
+    font-size: 13px;
+    padding-right: 6px;
+  }
+  .os-grid select {
+    width: 570px;
+  }
+  .os-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin-top: 8px;
+  }
+  .os-sub .row label {
+    width: 210px;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+  }
+  .calc-grid .row label {
+    width: 210px;
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 0 10px;
+  }
+  button {
+    height: 34px;
+    border: 1px solid #7d8e9f;
+    background: linear-gradient(#f7f7f7, #dcdcdc);
+    color: #173556;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 0 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover { filter: brightness(0.98); }
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background: #f6f6f6;
+  }
+  .result-table th, .result-table td {
+    border: 1px solid #c8c8c8;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  .result-table th {
+    background: #dde4eb;
+    color: #24496f;
+    text-align: left;
+  }
+  .result-table td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: #6a4e34;
+  }
+  .summary-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .sum-card {
+    border: 1px solid #c2c6cb;
+    background: #f6f6f6;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .sum-card .t {
+    color: #436182;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .sum-card .v {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d557c;
+  }
+  .muted {
+    color: #6e8195;
+    font-size: 11px;
+  }
+  .notes {
+    margin-top: 10px;
+    border: 1px solid #c6d1dc;
+    background: #f4f8fb;
+    color: #35546e;
+    padding: 8px 10px;
+    border-radius: 4px;
+    line-height: 1.45;
+  }
+  .tiny {
+    font-size: 11px;
+    color: #67809a;
+  }
+  .spacer { height: 4px; }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    .page {
+      width: auto !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      border: 0 !important;
+      padding: 0 !important;
+    }
+    .actions,
+    #btnImprimir,
+    #btnExportar {
+      display: none !important;
+    }
+    fieldset {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .notes {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    input,
+    select {
+      border: 1px solid #bbb !important;
+      background: #fff !important;
+      color: #000 !important;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    button {
+      display: none !important;
+    }
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <h1>CALCULO COSTO LABORAL</h1>
+    <div class="crumb">
+      <div class="periodo-controls">
+        <label for="periodoMes">Mes:</label>
+        <select id="periodoMes"></select>
+        <label for="periodoAnio">Año:</label>
+        <select id="periodoAnio"></select>
+      </div>
+      <div>1/1</div>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>Datos Generales</legend>
+    <div class="grid-2">
+      <div>
+        <div class="row"><label><span class="req">*</span> CUIL:</label><input id="cuil" class="box mid" type="text" value=""></div>
+        <div class="row"><label>Conyuge:</label><input id="conyuge" type="checkbox" checked></div>
+        <div class="row"><label>Trabajador en CCT:</label><input id="trabCct" type="checkbox" checked></div>
+        <div class="row"><label>SCVO:</label><input id="scvo" type="checkbox"></div>
+        <div class="row"><label>Corresponde reducción:</label><input id="reduccion" type="checkbox"></div>
+      </div>
+      <div>
+        <div class="row"><label class="inline-label">Apellido y nombre:</label><span class="text-strong"><input id="apellidoNombre" class="box xlong" type="text" value=""></span></div>
+        <div class="row"><label>Hijos:</label><input id="hijos" class="box small num" type="number" value="1"></div>
+        <div class="row"><label><span class="req">*</span> Tipo de Empleador:</label><select id="tipoEmpleador" class="xlong"><option value="1" selected>1 - 1 - Dto. 814/01, art. 2, inc. b) / Ley 27.541, a</option>
+<option value="2">2 - 2 - Dto. 814/01, art. 2, inc. a) / Ley 27.541, b</option></select></div>
+        <div class="row"><label>Tipo de Operación:</label><input id="tipoOperacion" class="box small num" type="number" value="0"></div>
+        <div class="row"><label>Base diferencial LRT:</label><input id="baseDifLrt" class="box mid num" type="text" value="0,00"></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Perfil Trabajador</legend>
+    <div class="profile-row"><label><span class="req">*</span> Situación:</label><select id="situacion"><option value="01" selected>01 - Activo</option>
+<option value="05">05 - Licencia por maternidad</option>
+<option value="06">06 - Suspensiones otras causales</option>
+<option value="09">09 - Suspendido. Ley 20.744 Art. 223 Bis</option>
+<option value="10">10 - Licencia por excedencia</option>
+<option value="11">11 - Licencia por maternidad Down</option>
+<option value="12">12 - Licencia por vacaciones</option>
+<option value="13">13 - Licencia sin goce de haberes</option>
+<option value="14">14 - Reserva de puesto</option>
+<option value="15">15 - E.S.E. Cese transitorio de servicios</option>
+<option value="16">16 - Personal siniestrado de terceros</option>
+<option value="17">17 - Reingreso por disposición judicial</option></select></div>
+    <div class="profile-row"><label><span class="req">*</span> Condición:</label><select id="condicion"><option value="01">01 - Servicios Comunes. Mayor de 18 años</option>
+<option value="02">02 - Jubilado</option>
+<option value="03">03 - Menor</option>
+<option value="04">04 - Menor anterior</option>
+<option value="05" selected>05 - Servicios Diferenciados Mayor de 18 años</option>
+<option value="06">06 - Sin Servicios Reales</option>
+<option value="07">07 - Medida de no innovar. Servicios Comunes</option>
+<option value="08">08 - Medida de no innovar. Servicios Diferenciados</option></select></div>
+    <div class="profile-row"><label><span class="req">*</span> Actividad:</label><select id="actividad"><option value="000">000 - Zona de Desastre. Decreto Nº 1386/01 excepto actividad agropecuaria</option><option value="001">001 - Producción Primaria excepto actividad agropecuaria</option><option value="002">002 - Producción de bienes sin comercialización</option><option value="003">003 - Construcción de inmuebles</option><option value="004">004 - Turismo</option><option value="005">005 - Investigación Científica y Tecnológica</option><option value="006">006 - Administración Pública. Con Obra Social Ley Nº 23.660</option><option value="007">007 - Enseñanza Privada Ley Nº 13.047 no comprendidos en el Decreto Nº 137/05</option><option value="008">008 - Servicio Doméstico</option><option value="009">009 - Servicios energéticos Res. MTESS 268 y 824/09</option><option value="010">010 - Universidades privadas personal no docente Decreto Nº 1123/99</option><option value="011">011 - Personal Permanente Discont. Empresas de Servicios Eventuales</option><option value="012">012 - PIT - Programas Intensivos de Trabajo</option><option value="013">013 - Personal embarcado</option><option value="014">014 - Personal embarcado Decreto Nº 1255 S/res SSS 18/99</option><option value="015">015 - L.R.T. —Directores SA, municipios, org, cent y descent. Emp mixt provin y otros—</option><option value="016">016 - No obligados con el SIJP (colegios, reciprocidad previsional y otros)</option><option value="017">017 - Obligados al SIJP - sin Obra Social Nacional (Adm Púb y otros)</option><option value="018">018 - Provincia incorporada al SIJP sin obra social nacional con ART</option><option value="019">019 - Provincia incorporada al SIJP sin obra social nacional sin ART</option><option value="020">020 - Ley Nº 24.331 Zona Franca</option><option value="021">021 - Decreto Nº 1024/93 Empr del Estado, Org. y Entes Públicos con OS y FNE</option><option value="022">022 - Decreto Nº 1024/93 Empr del Estado, Org. y Entes Públicos sin OS y con FNE</option><option value="027">027 - Servicio exterior Ley Nº 22.731</option><option value="029">029 - Personal embarcado Decreto Nº 1255 S/res SSS 18/99 con Obra Social</option><option value="030">030 - AFA Decreto Nº 1212/03. Aportante autónomo</option><option value="031">031 - Trabajador rural de la Armada Argentina</option><option value="032">032 - CSJN Corte Suprema de Justicia, Magistrados provinciales, Revisores de Cuenta</option><option value="033">033 - Representante gremial en uso de licencia</option><option value="034">034 - Docentes estatales nacionales. Con obra social 23.660 - Decreto Nº 137/05</option><option value="035">035 - Docentes estatales nacionales. Sin obra social 23.660 - Decreto Nº 137/05</option><option value="036">036 - Investigador científico/tecnológico estatal nacional con obra social Ley Nº 23.660 Decreto Nº 160/05</option><option value="037">037 - Investigador científico/tecnológico estatal nacional sin obra social Ley Nº 23.660 Decreto Nº 160/05</option><option value="038">038 - Docentes privados Res 71/99 SSS - Decreto Nº 137/05</option><option value="039">039 - No docentes privados Res 71/99 SSS</option><option value="040">040 - Industria del software Ley Nº 25.922</option><option value="041">041 - Trabajador de la Construcción Ley 25.345 Art. 36</option><option value="042">042 - Asignaciones Familiares y FNE con Obra Social Nacional</option><option value="043">043 - Asignaciones Familiares y FNE sin Obra Social Nacional</option><option value="044">044 - Ley Nº 24.061 Dto. Nº 249/92</option><option value="045">045 - Provincia incorporada al SIJP con obra social nacional con ART</option><option value="046">046 - Provincia incorporada al SIJP con obra social nacional sin ART</option><option value="047">047 - Ley Nº 15.223 con obra social</option><option value="048">048 - Régimen nacional sin obra social nacional</option><option value="049">049 - Actividades no clasificadas</option><option value="050">050 - POLICIA DE LA RIOJA</option><option value="051">051 - POLICIA DE JUJUY</option><option value="052">052 - POLICIA DE TUCUMAN</option><option value="053">053 - POLICIA DE CATAMARCA</option><option value="054">054 - POLICIA DE RIO NEGRO</option><option value="055">055 - POLICIA DE MENDOZA</option><option value="056">056 - POLICIA DE SANTIAGO DEL ESTERO</option><option value="057">057 - POLICIA DE SALTA</option><option value="058">058 - POLICIA DE SAN JUAN</option><option value="059">059 - POLICIA DE SAN LUIS</option><option value="060">060 - SERVICIO PENITENCIARIO DE SAN LUIS</option><option value="061">061 - POLICIA METROPOLITANA DEL GOBIERNO DE LA CIUDAD DE BUENOS AIRES</option><option value="062">062 - Personal sin estado policial POLICIA METROPOLITANA DEL GOBIERNO DE LA CIUDAD DE BUENOS AIRES</option><option value="063">063 - SERVICIO PENITENCIARIO DE LA RIOJA</option><option value="064">064 - SERVICIO PENITENCIARIO DE JUJUY</option><option value="065">065 - SERVICIO PENITENCIARIO DE TUCUMAN</option><option value="066">066 - SERVICIO PENITENCIARIO DE CATAMARCA</option><option value="067">067 - SERVICIO PENITENCIARIO DE RIO NEGRO</option><option value="068">068 - SERVICIO PENITENCIARIO DE MENDOZA</option><option value="069">069 - LEGISLADORES NACIONALES (DIPUTADOS Y SENADORES)</option><option value="070">070 - SERVICIO PENITENCIARIO DE SANTIAGO DEL ESTERO</option><option value="071">071 - SERVICIO PENITENCIARIO DE SALTA</option><option value="072">072 - SERVICIO PENITENCIARIO DE SAN JUAN</option><option value="075">075 - Docente de Prov incorporada/SIJP S/obra social nacional C/ART Decreto Nº 137/05</option><option value="076">076 - Docente de Prov incorporada/SIJP S/obra social nacional S/ART Decreto Nº 137/05</option><option value="077">077 - Docente de Prov incorporada/SIJP C/obra social nacional C/ART Decreto Nº 137/05</option><option value="078">078 - Investigador científ/tecnológ/Prov incorporada/SIJP S/O.Social Nac C/ART - Decreto Nº 160/05</option><option value="079">079 - Investigador científ/tecnológ/Prov incorporada/SIJP C/O Social Nac C/ART - Decreto Nº 160/05</option><option value="081">081 - Funcionarios del Poder Judicial de la Nación Ley Nº 24.018</option><option value="082">082 - Funcionarios del Poder Ejecutivo y otros Ley Nº 24.018</option><option value="083">083 - Presidente de la Nación y Vicepresidente de la Nación</option><option value="084">084 - Docentes privados Res. 71/99 SSS - Dec. Nº 137/05 sin Obra Social</option><option value="085">085 - Magistrados provinciales, Revisores de Cuenta – docentes</option><option value="086">086 - Decreto Nº 1.474/2007 actividad minera</option><option value="087">087 - Docentes Universitarios Nacionales con Obra Social Ley Nº 26.508</option><option value="088">088 - Docentes Universitarios Nacionales sin Obra Social Ley Nº 26.508</option><option value="091">091 - Régimen previsional propio. Obra Social Ley Nº 23.660 y Nº 24.714</option><option value="092">092 - Res 71/99 SSS y otros</option><option value="093">093 - Universidades privadas. Personal Docente D. Nº 1123/99</option><option value="094">094 - Decreto Nº 953/99</option><option value="095">095 - Ley Nº 15.223 sin obra social</option><option value="097" selected>097 - Trabajador Agrario. Ley Nº 25.191</option><option value="098">098 - Zona de Desastre Decreto Nº 1.386/01. Actividad Agropecuaria Ley Nº 25.191</option><option value="106">106 - Administración Pública con obra social Ley Nº 23.660 (con PAMI) Tipo de empleador especial</option><option value="109">109 - Servicios energéticos Res. MTESS 268 y 824/09 - Provincias (Sin PAMI y sin Obra Social)</option><option value="110">110 - Servicios energéticos Res. MTESS 268 y 824/09 - Provincias con Obra Social</option><option value="117">117 - Obligados SIJP —Sin Obra Social (Adm. Púb. y otros) sin PAMI— Tipo de empleador especial</option><option value="901">901 - Poder Judicial (sin ART)</option><option value="902">902 - Poder Judicial (con ART)</option><option value="903">903 - Poder Legislativo (sin ART)</option><option value="904">904 - Poder Legislativo (con ART)</option><option value="905">905 - Empleo público en gral. (sin ART)</option><option value="906">906 - Empleo público en gral. (con ART)</option><option value="907">907 - Docente (sin ART)</option><option value="908">908 - Docente (con ART)</option><option value="909">909 - Fuerza de seguridad (sin ART)</option><option value="910">910 - Fuerza de seguridad (con ART)</option><option value="911">911 - No clasificados (sin ART)</option><option value="912">912 - No clasificados (con ART)</option><option value="913">913 - Prestadores de servicios (monotributo y/o autónomos)</option><option value="920">920 - No obligados al SIPA – Informativo (sin ART)</option><option value="921">921 - No obligados al SIPA – Informativo (con ART)</option></select></div>
+    <div class="profile-row"><label><span class="req">*</span> Modalidad Contratación:</label><select id="modalidad"><option value="000">000 - Contrato Modalidad Promovida. Reducción 0%</option>
+<option value="001">001 - A tiempo parcial: indeterminado/permanente</option>
+<option value="002">002 - Becarios - Residencias médicas Ley 22.127</option>
+<option value="003">003 - De aprendizaje Ley 25.013</option>
+<option value="004">004 - Especial de Fomento del Empleo. Ley 24.465</option>
+<option value="005">005 - Fomento del empleo. Leyes 24.013 y 24.465</option>
+<option value="006">006 - Lanzamiento nueva actividad. Idem 005</option>
+<option value="007">007 - Período de prueba. Leyes 24.465 y 25.013</option>
+<option value="008">008 - A tiempo completo indeterminado / Trabajo permanente</option>
+<option value="009">009 - Práctica laboral para jóvenes</option>
+<option value="010">010 - Pasantías. Ley 25.165. Decreto 340/92</option>
+<option value="011">011 - Trabajo de temporada</option>
+<option value="012">012 - Trabajo eventual</option>
+<option value="013">013 - Trabajo formación</option>
+<option value="014">014 - Nuevo período de prueba</option>
+<option value="015">015 - Puesto nuevo varones y mujeres de 25 a 44 años</option>
+<option value="016">016 - Nuevo período de prueba trabajador discapacitado Art. 34 Ley 24.147</option>
+<option value="017">017 - Puesto nuevo menor de 25 años, varones y mujeres de 45 o más años y mujer jefe de familia</option>
+<option value="018">018 - Trabajador discapacitado Art. 34 Ley 24.147</option>
+<option value="019">019 - Puesto nuevo. Varones y mujeres de 25 a 44 años. Art. 34 Ley 24.147</option>
+<option value="020">020 - Puesto nuevo menor de 25 años, varones y mujeres de 45 o más y mujer jefe de familia. Art. 34 Ley 24.147</option>
+<option value="021">021 - A tiempo parcial determinado (contrato a plazo fijo)</option>
+<option value="022">022 - A tiempo completo determinado (contrato a plazo fijo)</option>
+<option value="023">023 - Personal no permanente Ley 22.248</option>
+<option value="024">024 - Personal de la Construcción Ley 22.250</option>
+<option value="025">025 - Empleo público provincial</option>
+<option value="026">026 - Beneficiario de programa de empleo, capacitación y de recuperación productiva</option>
+<option value="027">027 - Pasantías Decreto 1.227/01</option>
+<option value="028">028 - Programas jefes y jefas de hogar</option>
+<option value="029">029 - Decreto 1212/03 Aportante autónomo</option>
+<option value="030">030 - Nuevo período de prueba trabajador discapacitado Art. 87 Ley 24.013</option>
+<option value="031">031 - Trabajador discapacitado Art. 87 Ley 24.013</option>
+<option value="032">032 - Período de prueba Art. 6 Ley 25.877</option>
+<option value="033">033 - Período de prueba Art. 6 Ley 25.877. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="034">034 - Período de prueba Art. 6 Ley 25.877. Art. 34 Ley 24.147</option>
+<option value="035">035 - Período de prueba Art. 6 Ley 25.877. Art. 34 Ley 24.147. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="036">036 - Período de prueba Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013</option>
+<option value="037">037 - Período de prueba Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="038">038 - Puesto nuevo Art. 6 Ley 25.877</option>
+<option value="039">039 - Puesto nuevo Art. 6 Ley 25.877. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="040">040 - Puesto nuevo Art. 6 Ley 25.877. Art. 34 Ley 24.147</option>
+<option value="041">041 - Puesto nuevo Art. 6 Ley 25.877. Art. 34 Ley 24.147. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="042">042 - Puesto nuevo Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013</option>
+<option value="043">043 - Puesto nuevo Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013. Beneficiarios de planes Jefes y Jefas de hogar</option>
+<option value="044">044 - Changa Solidaria. CCT 62/75</option>
+<option value="045">045 - Personal no permanente hoteles. Art. 68 CCT 362/03</option>
+<option value="046">046 - Planta transitoria Adm. Pública Nacional, Provincial y/o Municipal</option>
+<option value="047">047 - Representación gremial</option>
+<option value="048">048 - Art. 4 Ley 24.241. Traslado temporario desde el exterior o convenios bilaterales de Seguridad Social</option>
+<option value="050">050 - Contrato Modalidad Promovida. Reducción 50%</option>
+<option value="062">062 - Actor - Intérprete en Empleador Contratante Ley 27.203 - sin obra social</option>
+<option value="063">063 - Acciones de Entrenamiento para el Trabajo - Res. 1107/2022</option>
+<option value="065">065 - A tiempo indeterminado / Trabajo permanente discontinuo</option>
+<option value="095">095 - Planes Ministerio de Trabajo</option>
+<option value="096">096 - Plan Trabajadores por San Luis Ley 5411</option>
+<option value="097">097 - Programa Trabajo para Jóvenes Tucumanos</option>
+<option value="098">098 - BONUS - Segunda Oportunidad</option>
+<option value="099">099 - LRT (Directores SA, municipios, org. cent./descent., emp. mixtas, docentes privados o públicos)</option>
+<option value="100">100 - Contrato Modalidad Promovida. Reducción 100%</option>
+<option value="101">101 - Pre-SIJP (anterior a 07/1994)</option>
+<option value="102">102 - Empleado Servicio Eventual en Usuaria Dto. 762</option>
+<option value="103">103 - Retiro voluntario - Decreto 263/2018 y otros</option>
+<option value="110" selected>110 - Trabajo permanente prestación continua Ley 26.727</option>
+<option value="111">111 - Trabajo temporario Ley 26.727</option>
+<option value="112">112 - Trabajo permanente discontinuo Ley 26.727</option>
+<option value="113">113 - Trabajo por equipo o cuadrilla familiar Ley 26.727</option>
+<option value="114">114 - Trabajo temporario con reducción Ley 26.727</option>
+<option value="115">115 - Trabajo permanente discontinuo con reducción Ley 26.727</option>
+<option value="201">201 - Puesto nuevo Art. 16 Ley 26.476 - beneficio primeros 12 meses</option>
+<option value="202">202 - Puesto nuevo Art. 16 Ley 26.476 - trabajador discapacitado Art. 34 Ley 24.147</option>
+<option value="301">301 - Art. 19 Ley 26.940. Tiempo indeterminado</option>
+<option value="302">302 - Art. 19 Ley 26.940. Trabajador discapacitado art. 34 L 24.147. Tiempo indeterminado</option>
+<option value="303">303 - Art. 19 Ley 26.940. Trabajador discapacitado art. 87 L 24.013. Tiempo indeterminado</option>
+<option value="304">304 - Art. 19 Ley 26.940. Tiempo parcial. Art. 92 ter LCT</option>
+<option value="305">305 - Art. 19 Ley 26.940. Trabajador discapacitado art. 34 L 24.147. Tiempo parcial</option>
+<option value="306">306 - Art. 19 Ley 26.940. Trabajador discapacitado art. 87 L 24.013. Tiempo parcial</option>
+<option value="307">307 - Art. 24 Ley 26.940. Hasta 15 empleados. Primeros 12 meses. Tiempo indeterminado</option>
+<option value="501">501 - Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="502">502 - Puesto Nuevo Art. 2 inc. b Decreto 493/2021</option>
+<option value="503">503 - Tiempo parcial. Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="504">504 - Tiempo parcial. Puesto Nuevo Art. 2 inc. b Decreto 493/2021</option>
+<option value="505">505 - Discapacitado Ley 24.013 y Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="506">506 - Discapacitado Ley 24.013 y Tiempo parcial Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="507">507 - Trabajo permanente prestación continua Ley 26.727. Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="508">508 - Trabajo permanente prestación continua Ley 26.727. Puesto Nuevo Art. 2 inc. b Decreto 493/2021</option>
+<option value="509">509 - Trabajo permanente discontinuo Ley 26.727. Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="510">510 - Trabajo permanente discontinuo Ley 26.727. Puesto Nuevo Art. 2 inc. b Decreto 493/2021</option>
+<option value="511">511 - Personal de la Construcción Ley 22.250. Puesto Nuevo Art. 2 inc. a Decreto 493/2021</option>
+<option value="512">512 - Personal de la Construcción Ley 22.250. Puesto Nuevo Art. 2 inc. b Decreto 493/2021</option>
+<option value="601">601 - Plazo indeterminado a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="602">602 - Plazo indeterminado a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="603">603 - Plazo fijo a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="604">604 - Plazo fijo a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="605">605 - Trabajo de temporada a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="606">606 - Trabajo de temporada a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="607">607 - Trabajador agrario permanente prestación continua a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="608">608 - Trabajador agrario permanente prestación continua a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="609">609 - Trabajador agrario permanente discontinuo a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="610">610 - Trabajador agrario permanente discontinuo a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="611">611 - Trabajo agrario temporario a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="612">612 - Trabajo agrario temporario a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="613">613 - Personal de la Construcción a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%</option>
+<option value="614">614 - Personal de la Construcción a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%</option>
+<option value="701">701 - Regularización personal no registrado. Art. 77 Ley 27.742</option>
+<option value="702">702 - Regularización personal no registrado. Art. 77 Ley 27.742. Micro y Pequeñas Empresas / ESFL</option>
+<option value="703">703 - Regularización personal no registrado. Art. 77 Ley 27.742. Medianas Empresas Tramo 1 y 2</option></select></div>
+    <div class="profile-row"><label><span class="req">*</span> Código de siniestrado:</label><select id="siniestrado"><option value="00" selected>00 - No incapacitado</option>
+<option value="01">01 - Incapacidad Laboral Temporaria (ILT)</option>
+<option value="02">02 - Incapacidad Laboral Permanente Parcial Provisoria (ILPPP)</option>
+<option value="03">03 - Incapacidad Laboral Permanente Parcial Definitiva (ILPPD)</option>
+<option value="04">04 - Incapacidad Laboral Permanente Total Provisoria (ILPTP)</option>
+<option value="05">05 - Capital de Recomposición. Punto 3, Artículo 15 Ley 24.557</option></select></div>
+    <div class="profile-row"><label><span class="req">*</span> Localidad:</label><select id="localidad"><option value="00">00 - Capital Federal</option>
+<option value="01">01 - Buenos Aires - Gran Buenos Aires</option>
+<option value="07" selected>07 - Buenos Aires - Resto de la Provincia</option>
+<option value="10">10 - Córdoba</option>
+<option value="14">14 - Santa Fe</option>
+<option value="18">18 - Misiones</option></select></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Bases Imponibles</legend>
+    <div class="bases-wrap">
+      <div class="base-tools">
+        <div class="base-note">Carga manual activa: Remuneración Bruta y Rem. 1 a Rem. 11 se editan directamente en pantalla.</div>
+      </div>
+      <div class="base-head">
+        <label>Remuneración Bruta:</label>
+        <input id="remBruta" class="box mid num base-edit editable-base" type="text" value="">
+      </div>
+      <div class="base-grid">
+        <div class="b-label">1. Aportes Previsionales</div><input id="rem1" class="box num base-edit editable-base" type="text">
+        <div class="b-label">2. Contribuciones previsionales en INSSJyP</div><input id="rem2" class="box num base-edit editable-base" type="text">
+        <div class="b-label">3. Contribuciones FNE, asignaciones familiares y RENATRE</div><input id="rem3" class="box num base-edit editable-base" type="text">
+        <div class="b-label">4. Aportes obra social y FSR</div><input id="rem4" class="box num base-edit editable-base" type="text">
+        <div class="b-label">5. Aportes INSSJyP</div><input id="rem5" class="box num base-edit editable-base" type="text">
+        <div class="b-label">6. Aportes diferenciales</div><input id="rem6" class="box num base-edit editable-base" type="text">
+        <div class="b-label">7. Aportes personal regímenes especiales</div><input id="rem7" class="box num base-edit editable-base" type="text">
+        <div class="b-label">8. Contribuciones obra social y FSR</div><input id="rem8" class="box num base-edit editable-base" type="text">
+        <div class="b-label">9. Ley de riesgos del trabajo</div><input id="rem9" class="box num base-edit editable-base" type="text">
+        <div class="b-label">10. Contribuciones Previsionales y PAMI - Ley 27.430</div><input id="rem10" class="box num base-edit editable-base" type="text">
+        <div class="b-label">11. Importe a detraer</div><input id="rem11" class="box num base-edit editable-base" type="text">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Datos Complementarios</legend>
+    <div class="triple">
+      <div>
+        <div class="row"><label style="width:170px;text-align:left;padding-right:0;">Situaciones de revista del período:</label></div>
+        <div class="row"><select id="situacionP1" class="long"><option value="-">- - -</option>
+<option value="01" selected>01 - Activo</option>
+<option value="05">05 - Licencia por maternidad</option>
+<option value="06">06 - Suspensiones otras causales</option>
+<option value="09">09 - Suspendido. Ley 20.744 Art. 223 Bis</option>
+<option value="10">10 - Licencia por excedencia</option>
+<option value="11">11 - Licencia por maternidad Down</option>
+<option value="12">12 - Licencia por vacaciones</option>
+<option value="13">13 - Licencia sin goce de haberes</option>
+<option value="14">14 - Reserva de puesto</option>
+<option value="15">15 - E.S.E. Cese transitorio de servicios</option>
+<option value="16">16 - Personal siniestrado de terceros</option>
+<option value="17">17 - Reingreso por disposición judicial</option></select></div>
+        <div class="row"><select id="situacionP2" class="long"><option value="-" selected>- - -</option></select></div>
+        <div class="row"><select id="situacionP3" class="long"><option value="-" selected>- - -</option></select></div>
+      </div>
+      <div>
+        <div class="row"><label style="width:95px;text-align:left;padding-right:0;">Día de inicio:</label></div>
+        <div class="row"><input id="diaInicio1" class="box small num" type="number" value="1"></div>
+        <div class="row"><input id="diaInicio2" class="box small num" type="number" value="0"></div>
+        <div class="row"><input id="diaInicio3" class="box small num" type="number" value="0"></div>
+      </div>
+      <div class="col-right">
+        <div class="row"><label>Maternidad /Art 13 - ley 27.674:</label><input id="maternidad" class="box mid num" type="text" value="0,00"></div>
+        <div class="row"><label>Cantidad de días trabajados:</label><input id="diasTrabajados" class="box small num" type="number" value="30"></div>
+        <div class="row"><label>Horas trabajadas:</label><input id="horasTrabajadas" class="box small num" type="number" value="0"></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Seguridad Social</legend>
+    <div class="two-cols">
+      <div>
+        <div class="row"><label>Aporte adicional (%):</label><input id="aporteAdicPct" class="box long num" type="text" value="0,00"></div>
+        <div class="row"><label>Base Diferencial de Aporte:</label><input id="baseDifAporte" class="box long num" type="text" value="0,00"></div>
+      </div>
+      <div>
+        <div class="row"><label>Contribución tarea diferencial (%):</label><input id="contribDifPct" class="box long num" type="text" value="2,00"></div>
+        <div class="row"><label>Base Diferencial de Contribución:</label><input id="baseDifContrib" class="box long num" type="text" value="0,00"></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Obra Social</legend>
+    <div class="os-grid">
+      <label><span class="req">*</span> Obra Social:</label>
+      <select id="obraSocial"><option value="000000">000000 - NINGUNA</option>
+<option value="000109">000109 - O.S. DEL PERSONAL JERARQUICO DE LA INDUSTRIA GRAFICA DE LA REPUBLICA ARGENTINA</option>
+<option value="000208">000208 - O.S. DEL PERSONAL DE LA INDUSTRIA GRAFICA DE LA PROVINCIA DE CORDOBA</option>
+<option value="000307">000307 - O.S. PORTUARIOS ARGENTINOS DE MAR DEL PLATA</option>
+<option value="000406">000406 - O.S. DEL PERSONAL DEL ORGANISMO DE CONTROL EXTERNO</option>
+<option value="000505">000505 - O.S . DE CAPITANES, PILOTOS Y PATRONES DE PESCA</option>
+<option value="000604">000604 - O.S . DE AGENTES DE LOTERIAS Y AFINES DE LA REPUBLICA ARGENTINA</option>
+<option value="000703">000703 - MUTUAL DEL PERSONAL DEL AGUA Y LA ENERGIA ELECTRICA DE MENDOZA</option>
+<option value="000802">000802 - O.S. DE Y.P.F.</option>
+<option value="000901">000901 - O.S. DE LA ACTIVIDAD DE SEGUROS, REASEGUROS, CAPITALIZACION Y AHORRO Y PRESTAMO PARA LA VIVIENDA</option>
+<option value="001003">001003 - O.S. DEL PERSONAL DE OBRAS Y SERVICIOS SANITARIOS</option>
+<option value="001102">001102 - O.S. PARA LA ACTIVIDAD DOCENTE</option>
+<option value="001201">001201 - O.S. PARA EL PERSONAL DEL MINISTERIO DE ECONOMIA Y DE OBRAS Y SERVICIOS PUBLICOS</option>
+<option value="001300">001300 - O.S. FERROVIARIA</option>
+<option value="001508">001508 - O.S . DE LA ASOCIACION CIVIL PRO SINDICATO AMAS DE CASA DE LA REPUBLICA ARGENTINA</option>
+<option value="001607">001607 - O.S. DEL SINDICATO UNIDO DE TRABAJADORES DE LA INDUSTRIA DE AGUAS GASEOSAS DE LA PROVINCIA DE SANTA FE</option>
+<option value="001706">001706 - O.S . DEL PERSONAL JERARQUICO DE LA REPUBLICA ARGENTINA PARA EL PERSONAL JERARQUICO DE LA INDUSTRIA GRAFICA Y EL PERSONAL JERARQUICO DEL AGUA Y LA ENERGIA</option>
+<option value="001805">001805 - O.S . DE LOS LEGISLADORES DE LA REPUBLICA ARGENTINA</option>
+<option value="001904">001904 - O.S DE LA FEDERACION DE CAMARAS Y CENTROS COMERCIALES ZONALES DE LA REPUBLICA ARGENTINA (O.S.FEDECAMARAS)</option>
+<option value="002006">002006 - O.S. de VIALIDAD NACIONAL</option>
+<option value="002105">002105 - O.S. PROFESIONALES DEL TURF DE LA RA (OSPROTURA)</option>
+<option value="002204">002204 - O.S. DE EMPL.Y PERS. JERARQ.DE LA ACT.DEL NEUM.ARG.DE NEUM.G.YEAR</option>
+<option value="002303">002303 - O.S. PARA EL PERSONAL DE EMPRESAS DE LIMPIEZA, SERVICIOS Y MAESTRANZA DE MENDOZA</option>
+<option value="002402">002402 - OBRA SOCIAL DEL PERSONAL JERARQUICO DEL TRANSPORTE AUTOMOTOR DE PASAJEROS DE CORDOBA Y AFINES</option>
+<option value="002501">002501 - O.S. DE MINISTROS, SECRETARIOS Y SUBSECRETARIOS</option>
+<option value="002600">002600 - O.S. DE LOS TRABAJADORES DE LA CARNE Y AFINES DE LA REPUBLICA ARGENTINA (OSCARA)</option>
+<option value="002709">002709 - O.S. DE LOS TRABAJADORES ASOCIADOS A LA ASOCIACION MUTUAL MERCANTIL ARGENTINA (OSTAMMA)</option>
+<option value="002808">002808 - O.S. DE LA CAMARA DE EMPRESARIOS DE AGENCIAS DE REMISES DE LA PROVINCIA DE BUENOS AIRES (O.S.C.E.A.R.B.A)</option>
+<option value="002907">002907 - O.S. ASOCIACION MUTUAL METALURGICA VILLA CONSTITUCION (O.S.A.M.M.V.C.)</option>
+<option value="003009">003009 - O.S. PERSONAL ASOCIADO A ASOC.MUTUAL SANCOR (O.S.PERS.A.A.M.S)</option>
+<option value="100106">100106 - O.S. PARA EL PERSONAL DE LA INDUSTRIA ACEITERA DESMOTADORA Y AFINES</option>
+<option value="100205">100205 - O.S. DE ACTORES</option>
+<option value="100304">100304 - O.S. DE TECNICOS DE VUELO DE LINEAS AEREAS</option>
+<option value="100403">100403 - O.S. DEL PERSONAL SUPERIOR Y PROFESIONAL DE EMPRESAS AEROCOMERCIALES</option>
+<option value="100502">100502 - O.S. DEL PERSONAL AERONAUTICO</option>
+<option value="100601">100601 - O.S. DEL PERSONAL DE AERONAVEGACION DE ENTES PRIVADOS</option>
+<option value="100700">100700 - O.S. DEL PERSONAL TECNICO AERONAUTICO</option>
+<option value="100809">100809 - O.S. DE AERONAVEGANTES</option>
+<option value="100908">100908 - O.S. DE EMPLEADOS DE AGENCIAS DE INFORMES (O.S.E.D.I.)</option>
+<option value="101000">101000 - O.S. DEL PERSONAL DE AGUAS GASEOSAS Y AFINES</option>
+<option value="101109">101109 - O.S. DE ALFAJOREROS, REPOSTEROS, PIZZEROS Y HELADEROS</option>
+<option value="101208">101208 - O.S. DEL PERSONAL DE LA INDUSTRIA DE LA ALIMENTACION</option>
+<option value="101307">101307 - O.S. DEL PERSONAL DE ARTES GRAFICAS DEL CHACO</option>
+<option value="101406">101406 - O.S. ARTES GRAFICAS DE SANTA FE</option>
+<option value="101505">101505 - O.S. DE ARTISTAS DE VARIEDADES</option>
+<option value="101604">101604 - O.S. DEL PERSONAL DEL AUTOMOVIL CLUB ARGENTINO</option>
+<option value="101703">101703 - O.S. DEL PERSONAL DEL AZUCAR DE CALILEGUA</option>
+<option value="101802">101802 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO LA ESPERANZA</option>
+<option value="101901">101901 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO LEDESMA</option>
+<option value="102003">102003 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO LAS TOSCAS</option>
+<option value="102102">102102 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO RIO GRANDE</option>
+<option value="102201">102201 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO SAN ISIDRO</option>
+<option value="102300">102300 - O.S. DEL PERSONAL DEL AZUCAR DEL INGENIO SAN MARTIN</option>
+<option value="102409">102409 - O.S. DEL PERSONAL DEL AZUCAR DE VILLA OCAMPO</option>
+<option value="102607">102607 - O.S. DEL PERSONAL DE LA ACTIVIDAD AZUCARERA TUCUMANA</option>
+<option value="102706">102706 - O.S. DEL PERSONAL DE LA INDUSTRIA AZUCARERA</option>
+<option value="102805">102805 - O.S. DE BANCARIOS</option>
+<option value="102904">102904 - O.S. DEL PERSONAL DE BARRACAS DE LANAS, CUEROS Y ANEXOS</option>
+<option value="103006">103006 - O.S. DEL PERSONAL DE LA INDUSTRIA BOTONERA</option>
+<option value="103105">103105 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL CALZADO</option>
+<option value="103204">103204 - O.S. DE CONDUCTORES CAMIONEROS Y PERSONAL DEL TRANSPORTE AUTOMOTOR DE CARGAS</option>
+<option value="103303">103303 - O.S. DEL PERSONAL DE LA JUNTA NACIONAL DE CARNES</option>
+<option value="103402">103402 - O.S. DEL PERSONAL DE CARGA Y DESCARGA</option>
+<option value="103600">103600 - O.S. DEL PERSONAL AUXILIAR DE CASAS PARTICULARES</option>
+<option value="103709">103709 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL CAUCHO</option>
+<option value="103808">103808 - O.S. DEL PERSONAL DEL CAUCHO</option>
+<option value="103907">103907 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL CAUCHO DE SANTA FE</option>
+<option value="104009">104009 - O.S. DEL PERSONAL DE CEMENTERIOS DE LA REP. ARGENTINA</option>
+<option value="104108">104108 - O.S. DE CERAMISTAS</option>
+<option value="104207">104207 - O.S. DEL PERSONAL DE LA CERAMICA, SANITARIOS, PORCELANA DE MESA Y AFINES</option>
+<option value="104306">104306 - O.S. DEL PERSONAL DE LA ACTIVIDAD CERVECERA Y AFINES</option>
+<option value="104405">104405 - O.S. DEL PERSONAL CINEMATOGRAFICO DE MAR DEL PLATA</option>
+<option value="104504">104504 - O.S. DEL PERSONAL DE LA INDUSTRIA CINEMATOGRAFICA</option>
+<option value="104603">104603 - O.S. DE OPERADORES CINEMATOGRAFICOS</option>
+<option value="104702">104702 - O.S. DE COLCHONEROS</option>
+<option value="104801">104801 - O.S. DE COLOCADORES DE AZULEJOS, MOSAICOS, GRANITEROS, LUSTRADORES Y PORCELANEROS</option>
+<option value="104900">104900 - O.S. DE EMPLEADOS DE COMERCIO</option>
+<option value="105002">105002 - O.S. DE CONDUCTORES NAVALES</option>
+<option value="105101">105101 - O.S. DE CONSIGNATARIOS DEL MERCADO GENERAL DE HACIENDA DE AVELLANEDA</option>
+<option value="105200">105200 - INSTITUTO DE SERVICIOS SOCIALES PARA EL PERSONAL DE LA INDUSTRIA DE LA CONSTRUCCION</option>
+<option value="105309">105309 - O.S. DEL PERSONAL ADMINISTRATIVO Y TECNICO DE LA CONSTRUCCION Y AFINES</option>
+<option value="105408">105408 - O.S. DEL PERSONAL DE LA CONSTRUCCION</option>
+<option value="105507">105507 - O.S. DE LOS CORTADORES DE LA INDUMENTARIA</option>
+<option value="105606">105606 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL CUERO Y AFINES</option>
+<option value="105705">105705 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL CHACINADO Y AFINES</option>
+<option value="105804">105804 - O.S. DE CHOFERES DE CAMIONES</option>
+<option value="105903">105903 - O.S. CHOFERES PARTICULARES</option>
+<option value="106005">106005 - O.S. DEL PERSONAL DE ENTIDADES DEPORTIVAS Y CIVILES</option>
+<option value="106104">106104 - O.S. DE EMPLEADOS DE DESPACHANTES DE ADUANA</option>
+<option value="106203">106203 - O.S. DEL PERS. DE DISTRIBUIDORES CINEMATOGRAF. DE LA R.A.</option>
+<option value="106302">106302 - O.S. DE DOCENTES PARTICULARES</option>
+<option value="106401">106401 - O.S. DEL PERSONAL DE EDIFCIOS DE RENTA Y HORIZONTAL DE LA REPUBLICA ARGENTINA</option>
+<option value="106500">106500 - O.S. DEL PERSONAL DE EDIFICIOS DE RENTAS Y HORIZONTAL DE CAPITAL FEDERAL Y GRAN BUENOS ARIES</option>
+<option value="106609">106609 - O.S. ELECTRICISTAS NAVALES</option>
+<option value="106708">106708 - O.S. DE OBREROS EMPACADORES DE FRUTA DE RIO NEGRO Y NEUQUEN</option>
+<option value="106807">106807 - O.S. DEL PERSONAL DE LA ENSEÑANZA PRIVADA</option>
+<option value="106906">106906 - O.S. DEL PERSONAL DE ESCRIBANIAS DE LA PROVINCIA DE BUENOS AIRES</option>
+<option value="107008">107008 - O.S. DEL PERSONAL DE ESCRIBANOS</option>
+<option value="107107">107107 - O.S. DEL PERSONAL DEL ESPECTACULO PUBLICO</option>
+<option value="107206">107206 - O.S. DEL PERSONAL DE ESTACIONES DE SERVICIO, GARAGES, PLAYAS DE ESTACIONAMIENTO Y LAVADEROS AUTOMATICOS</option>
+<option value="107404">107404 - O.S. DEL PERSONAL DE FARMACIA</option>
+<option value="107503">107503 - O.S. DEL PERSONAL DE LA FERIA INFANTIL</option>
+<option value="107602">107602 - O.S. DEL PERSONAL DE FERMOLAC</option>
+<option value="107701">107701 - O.S. DE FERROVIARIOS</option>
+<option value="107800">107800 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL FIBROCEMENTO</option>
+<option value="107909">107909 - O.S. DEL PERSONAL DE LA INDUSTRIA FIDEERA</option>
+<option value="108001">108001 - O.S. DEL PERSONAL DE LA INDUSTRIA FORESTAL DE SANTIAGO DEL ESTERO</option>
+<option value="108100">108100 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL FOSFORO</option>
+<option value="108209">108209 - O.S. DE FOTOGRAFOS</option>
+<option value="108407">108407 - O.S. DEL PERSONAL DE LA ACTIVIDAD FRUCTICOLA</option>
+<option value="108506">108506 - O.S. DEL PERSONAL DE MANIPULEO, EMPAQUE Y EXPEDICION DE FRUTA FRESCA Y HORTALIZAS DE CUYO</option>
+<option value="108605">108605 - O.S. DE FUTBOLISTAS</option>
+<option value="108704">108704 - O.S. DE TECNICOS DE FUTBOL</option>
+<option value="108803">108803 - O.S. DEL PERSONAL DEL TURISMO, HOTELERO Y GASTRONOMICO DE LA UNION DE TRABAJADORES DEL TURISMO, HOTELEROS Y GASTRONOMICOS DE LA RA (OSUTHGRA)</option>
+<option value="108902">108902 - O.S. DEL PERSONAL SUPERIOR DE GOOD YEAR ARGENTINA</option>
+<option value="109004">109004 - O.S. DEL PERSONAL GRAFICO</option>
+<option value="109103">109103 - O.S. DEL PERSONAL GRAFICO DE CORRIENTES</option>
+<option value="109202">109202 - O.S. DE GUINCHEROS Y MAQUINISTAS DE GRUAS MOVILES</option>
+<option value="109301">109301 - O.S. DEL PERSONAL DE CONSIGNATARIOS DEL MERCADO NACIONAL DE HACIENDA DE LINIERS</option>
+<option value="109400">109400 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL HIELO Y MERCADOS PARTICULARES</option>
+<option value="109509">109509 - O.S. DEL PERSONAL DE LOS HIPODROMOS DE BUENOS AIRES Y SAN ISIDRO</option>
+<option value="109608">109608 - O.S. DEL PERSONAL MENSUALIZADO DEL JOCKEY CLUB DE BUENOS AIRES Y LOS HIPODROMOS DE PALERMO Y SAN ISIDRO</option>
+<option value="109707">109707 - O.S. DEL PERSONAL DE IMPRENTA, DIARIOS Y AFINES</option>
+<option value="109905">109905 - O.S. DEL PERSONAL DEL INGENIO SAN PABLO</option>
+<option value="110008">110008 - O.S. DEL PERSONAL DE JABONEROS</option>
+<option value="110107">110107 - O.S. DE JARDINEROS,PARQUISTAS,VIVERISTAS Y FLORIC.DE R.A.</option>
+<option value="110206">110206 - O.S. DEL PERSONAL DE JOCKEY CLUB DE ROSARIO</option>
+<option value="110305">110305 - O.S. DEL PERSONAL LADRILLERO</option>
+<option value="110404">110404 - O.S. DEL PERSONAL DE LA INDUSTRIA LADRILLERA A MAQUINA</option>
+<option value="110503">110503 - O.S. DEL PERSONAL DE LA INDUSTRIA LECHERA</option>
+<option value="110602">110602 - O.S. DE LOCUTORES</option>
+<option value="110701">110701 - O.S. DE LA FEDERACION ARGENTINA DE TRABAJADORES DE LUZ Y FUERZA</option>
+<option value="110800">110800 - O.S. DE LOS TRABAJADORES DE LAS EMPRESAS DE ELECTRICIDAD</option>
+<option value="110909">110909 - O.S. DEL PERSONAL DE LUZ Y FUERZA DE CORDOBA</option>
+<option value="111001">111001 - O.S. DEL PERSONAL DE LA INDUSTRIA MADERERA</option>
+<option value="111209">111209 - O.S. DEL PERSONAL DE MAESTRANZA</option>
+<option value="111308">111308 - O.S. DE MAQUINISTAS DE TEATRO Y TELEVISION</option>
+<option value="111407">111407 - O.S. DE CAPITANES DE ULTRAMAR Y OFICIALES DE LA MARINA MERCANTE</option>
+<option value="111506">111506 - O.S. CAPITANES BAQUEANOS FLUVIALES DE LA MARINA MERCANTE</option>
+<option value="111605">111605 - O.S. DE EMPLEADOS DE LA MARINA MERCANTE</option>
+<option value="111704">111704 - O.S. DE ENCARGADOS APUNTADORES MARITIMOS</option>
+<option value="111803">111803 - O.S. DEL PERSONAL MARITIMO</option>
+<option value="111902">111902 - O.S. DEL SINDICATO DE MECANICOS Y AFINES DEL TRANSPORTE AUTOMOTOR</option>
+<option value="112004">112004 - O.S. DEL PERSONAL SUPERIOR DE MERCEDES BENZ ARGENTINA</option>
+<option value="112103">112103 - O.S. DE LA UNION OBRERA METALURGICO DE LA REPUBLICA ARGENTINA</option>
+<option value="112202">112202 - O.S. DE LOS SUPERVISORES DE LA INDUSTRIA METALMECANICA DE LA REPUBLICA ARGENTINA</option>
+<option value="112301">112301 - O.S. DEL PERSONAL DE MICROS Y OMNIBUS DE MENDOZA</option>
+<option value="112400">112400 - O.S. DE LA ACTIVIDAD MINERA</option>
+<option value="112509">112509 - O.S. MODELOS ARGENTINOS</option>
+<option value="112608">112608 - O.S. DEL PERSONAL DE LA INDUSTRIA MOLINERA</option>
+<option value="112707">112707 - O.S. DEL PERSONAL MOSAISTA</option>
+<option value="112806">112806 - O.S. DE MUSICOS</option>
+<option value="112905">112905 - O.S. DE MUSICOS DE CUYO</option>
+<option value="113007">113007 - O.S. DE MUSICOS DE MAR DEL PLATA</option>
+<option value="113205">113205 - O.S. DE JEFES Y OFICIALES NAVALES DE RADIOCOMUNICACIONES</option>
+<option value="113304">113304 - O.S. DE JEFES Y OFICIALES MAQUINISTAS NAVALES</option>
+<option value="113403">113403 - O.S. DEL PERSONAL NAVAL</option>
+<option value="113601">113601 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL NEUMATICO</option>
+<option value="113700">113700 - O.S. DEL PERSONAL DE LA INDUSTRIA NAVAL</option>
+<option value="113809">113809 - O.S. DE COMISARIOS NAVALES</option>
+<option value="113908">113908 - O.S. DEL PERSONAL DE PANADERIAS</option>
+<option value="114000">114000 - O.S. DE PANADEROS, PASTELEROS Y FACTUREROS DE ENTRE RIOS</option>
+<option value="114109">114109 - O.S. DEL PERSONAL DEL PAPEL, CARTON Y QUIMICOS</option>
+<option value="114208">114208 - O.S. DE LA INDUSTRIA DE PASTAS ALIMENTICIAS</option>
+<option value="114307">114307 - O.S. TRABAJ. PAST, CONFIT, PIZZEROS, HELAD. Y ALFAJ. DE LA R.A.</option>
+<option value="114505">114505 - O.S. DE PATRONES DE CABOTAJE DE RIOS Y PUERTOS</option>
+<option value="114604">114604 - O.S. DE PELETEROS</option>
+<option value="114703">114703 - O.S. DEL PERSONAL DE PELUQUERIAS, ESTETICA Y AFINES</option>
+<option value="114802">114802 - O.S. DE OFICIALES PELUQUEROS Y PEINADORES</option>
+<option value="114901">114901 - O.S.OFICIALES PELUQUEROS Y PEINADORES DE ROSARIO</option>
+<option value="115003">115003 - O.S. DEL PERSONAL DE LA ACTIVIDAD PERFUMISTA</option>
+<option value="115102">115102 - O.S. DE TRABAJADORES DE PRENSA DE BUENOS AIRES</option>
+<option value="115201">115201 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL PESCADO DE MAR DEL PLATA</option>
+<option value="115300">115300 - O.S. DE PETROLEROS</option>
+<option value="115409">115409 - O.S. DEL PETROLEO Y GAS PRIVADO</option>
+<option value="115508">115508 - O.S. DE PETROLEROS DE CORDOBA</option>
+<option value="115607">115607 - O.S. DEL PERSONAL DE LA INDUSTRIA PETROQUIMICA</option>
+<option value="115706">115706 - O.S. DE PILOTOS DE LINEAS AEREAS COMERCIALES Y REGULARES</option>
+<option value="115805">115805 - O.S. DEL PERSONAL DE FABRICAS DE PINTURA</option>
+<option value="115904">115904 - O.S. DEL PERSONAL DE ACADEMIAS PITMAN</option>
+<option value="116006">116006 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL PLASTICO</option>
+<option value="116105">116105 - O.S. DE CAPATACES ESTIBADORES PORTUARIOS</option>
+<option value="116204">116204 - O.S. DE PORTUARIOS ARGENTINOS</option>
+<option value="116303">116303 - O.S. PORTUARIOS DE BAHIA BLANCA</option>
+<option value="116402">116402 - O.S. PORTUARIOS DE NECOCHEA Y QUEQUEN</option>
+<option value="116501">116501 - O.S. PORTUARIOS DE ROSARIO</option>
+<option value="116600">116600 - O.S. PORTUARIOS DE SAN LORENZO</option>
+<option value="116709">116709 - O.S. PORTUARIOS DE PUERTO SAN MARTIN Y BELLA VISTA</option>
+<option value="116808">116808 - O.S. PORTUARIOS PUERTO SAN NICOLAS</option>
+<option value="116907">116907 - O.S. PORTUARIOS DE SAN PEDRO</option>
+<option value="117009">117009 - O.S. PORTUARIOS DE SANTA FE</option>
+<option value="117108">117108 - O.S. PORTUARIOS DE VILLA CONSTITUCIÓN</option>
+<option value="117207">117207 - O.S. DEL PERSONAL DE PRENSA DE LA REPUBLICA ARGENTINA</option>
+<option value="117405">117405 - O.S. DEL PERSONAL DE PRENSA DE BAHIA BLANCA</option>
+<option value="117603">117603 - O.S. DEL PERSONAL DE PRENSA DE LA PROVINCIA DEL CHACO</option>
+<option value="117702">117702 - O.S. DEL PERSONAL DE PRENSA DE MAR DEL PLATA</option>
+<option value="117801">117801 - O.S. DEL PERSONAL DE PRENSA DE MENDOZA</option>
+<option value="118002">118002 - O.S EMPLEADOS DE PRENSA DE CORDOBA</option>
+<option value="118101">118101 - O.S. DE PROFESIONALES DE LA OS DEL PERSONAL DEL PAPEL, CARTON Y QUIMICOS</option>
+<option value="118200">118200 - O.S. DE AGENTES DE PROPAGANDA MEDICA DE LA REPUBLICA ARGENTINA</option>
+<option value="118309">118309 - O.S. DE AGENTES DE PROPAGANDA MEDICA DE CORDOBA</option>
+<option value="118408">118408 - O.S. DE AGENTES DE PROPAGANDA MEDICA DE ENTRE RIOS</option>
+<option value="118507">118507 - O.S. DE AGENTES DE PROPAGANDA MEDICA DE ROSARIO</option>
+<option value="118606">118606 - O.S. DEL PERSONAL DE LA PUBLICIDAD</option>
+<option value="118705">118705 - O.S. DEL PERSONAL DE INDUSTRIAS QUIMICAS Y PETROQUIMICAS</option>
+<option value="118804">118804 - O.S. DE RECIBIDORES DE GRANOS Y ANEXOS</option>
+<option value="118903">118903 - O.S. DEL PERSONAL DE RECOLECCION Y BARRIDO DE ROSARIO</option>
+<option value="119005">119005 - O.S. DEL PERSONAL DE REFINERIAS DE MAIZ</option>
+<option value="119104">119104 - O.S. DE LA INDUSTRIA DE MATERIALES REFRACTARIOS Y AFINES</option>
+<option value="119203">119203 - O.S. DE RELOJEROS Y JOYEROS</option>
+<option value="119302" selected>119302 - O.S. DEL PERSONAL RURAL Y ESTIBADORES DE LA REPUBLICA ARGENTINA</option>
+<option value="119401">119401 - O.S. DEL PERSONAL DE LA INDUSTRIA SALINERA</option>
+<option value="119500">119500 - O.S. DEL PERSONAL DE LA SANIDAD ARGENTINA</option>
+<option value="119609">119609 - O.S. DEL PERSONAL DE INSTALACIONES SANITARIAS</option>
+<option value="119708">119708 - O.S. DEL PERSONAL DE SEGURIDAD COMERCIAL, INDUSTRIAL E INVESTIGACIONES PRIVADAS</option>
+<option value="119807">119807 - O.S. DEL PERSONAL DEL SEGURO</option>
+<option value="119906">119906 - O.S. DE SERENOS DE BUQUES</option>
+<option value="120108">120108 - O.S. DE TECNICOS, PROFESIONALES, EMPLEADOS Y SUPERVISORES DE INFORMATICA, TELECOMUNICACIONES. S. A. Y CIMET S.A.</option>
+<option value="120207">120207 - O.S. DEL PERSONAL DE STANDARD ELECTRIC</option>
+<option value="120306">120306 - O.S. DEL PERSONAL DE SUPERVISION DE LA EMPRESA SUBTERRANEOS DE BUENOS AIRES</option>
+<option value="120405">120405 - O.S. DEL PERSONAL DE DIRECCION DE LA EMPRESA SUBTERRANEOS BUENOS AIRES</option>
+<option value="120504">120504 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL TABACO</option>
+<option value="120603">120603 - O.S. DE EMPLEADOS DEL TABACO</option>
+<option value="120702">120702 - O.S. DEL PERSONAL DE LAS TELECOMUNICACIONES DE LA REPUBLICA ARGENTINA</option>
+<option value="120801">120801 - O.S. DE TRABAJADORES DE LAS COMUNICACIONES (OSTRAC)</option>
+<option value="120900">120900 - O.S. DEL PERSONAL DE TELEVISION</option>
+<option value="121002">121002 - O.S. DEL PERSONAL DE LA INDUSTRIA TEXTIL</option>
+<option value="121101">121101 - O.S. DE EMPLEADOS TEXTILES Y AFINES</option>
+<option value="121200">121200 - O.S. DE TINTOREROS, SOMBREREROS Y LAVADEROS</option>
+<option value="121309">121309 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL TRACTOR</option>
+<option value="121408">121408 - O.S. DEL TRANSPORTE AUTOMOTOR DE ROSARIO</option>
+<option value="121507">121507 - O.S. DE LA INDUSTRIA DEL TRANSPORTE AUTOMOTOR DE CORDOBA</option>
+<option value="121606">121606 - O.S. DE CONDUCTORES DE TRANSPORTE COLECTIVO DE PASAJEROS</option>
+<option value="121705">121705 - O.S. DEL PERSONAL DE LA ACTIVIDAD DEL TURF</option>
+<option value="121804">121804 - O.S. CONDUCTORES DE TAXIS DE CORDOBA</option>
+<option value="121903">121903 - O.S. DE VAREADORES</option>
+<option value="122005">122005 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL VESTIDO Y AFINES</option>
+<option value="122104">122104 - O.S. DE VIAJANTES VENDEDORES DE LA REPUBLICA ARGENTINA</option>
+<option value="122203">122203 - O.S. DE VIAJANTES DE COMERCIO</option>
+<option value="122302">122302 - O.S. DEL PERSONAL DE LA ACTIVIDAD VIAL</option>
+<option value="122401">122401 - O.S. DE EMPLEADOS DE LA INDUSTRIA DEL VIDRIO</option>
+<option value="122500">122500 - O.S. DEL PERSONAL DE LA INDUSTRIA DEL VIDRIO</option>
+<option value="122609">122609 - O.S. DEL PERSONAL DE LA ACTIVIDAD VITIVINICOLA</option>
+<option value="122708">122708 - O.S. DEL PERSONAL DE VIALIDAD NACIONAL</option>
+<option value="122807">122807 - O.S. DEL PERSONAL DE VIGILANCIA Y SEGURIDAD COMERCIAL, INDUSTRIAL E (cid:31)NVESTIGACIONES PRIVADAS DE CORDOBA</option>
+<option value="122906">122906 - O.S.DEL PERSONAL. ESTACIONES DE SERVICIO, GARAGES, PLAYAS Y LAVADEROS AUTOMATICOS DE LA PROVINCIA DE SANTA FE</option>
+<option value="123008">123008 - O.S. PARA EL PERSONAL DE ESTACIONES DE SERVICIO, GARAGES, PLAYAS DE ESTACIONAMIENTO, LAVADEROS AUTOMATICOS Y GOMERIAS DE LA REPUBLICA ARGENTINA</option>
+<option value="123107">123107 - O.S. DE TALLERISTAS A DOMICILIO</option>
+<option value="123206">123206 - O.S. DE BAÑEROS Y AFINES DEL PARTIDO DE GENERAL PUEYRREDON</option>
+<option value="123305">123305 - O.S. DEL PERSONAL DE SOCIEDADES DE AUTORES Y AFINES</option>
+<option value="123404">123404 - O.S. DEL PERSONAL DE PRENSA DE ROSARIO</option>
+<option value="123503">123503 - O.S. DEL PERSONAL DE PRENSA DE TUCUMAN</option>
+<option value="123602">123602 - O.S. DE TRABAJADORES DE PERKINS ARGENTINA S.A.I.C.</option>
+<option value="123701">123701 - O.S. DE PEONES DE TAXIS DE LA CAPITAL FEDERAL</option>
+<option value="123800">123800 - O.S. DEL PERSONAL GUARDAVIDAS Y AFINES DE LA REPUBLICA ARGENTINA</option>
+<option value="123909">123909 - O.S. DE VENDEDORES AMBULANTES DE LA REPUBLICA ARGENTINA</option>
+<option value="124001">124001 - O.S. DE BOXEADORES AGREMIADOS DE LA REPUBLICA ARGENTINA</option>
+<option value="124209">124209 - O.S. DE EMBALADORES, DESCARTADORES Y ALAMBRADORES SAN PEDRO</option>
+<option value="124308">124308 - O.S. DE EMPLEADOS Y OBREROS GASTRONOMICOS DE TUCUMAN</option>
+<option value="124407">124407 - O.S. PARA EL PERSONAL DE EMPRESA DE LIMPIEZA, SERVICIOS DE MENDOZA</option>
+<option value="124506">124506 - O.S. DE LOS TRABAJADORES DE LA INDUSTRIA DEL GAS</option>
+<option value="124704">124704 - O.S. DE TRABAJADORES DE LA INDUSTRIA AVICOLA Y AFINES DE LA REPUBLICA ARGENTINA</option>
+<option value="124803">124803 - O.S. DE ARBITROS DE LA ASOCIACION DEL FUTBOL ARGENTINO</option>
+<option value="124902">124902 - O.S. DE LA FEDERACION NACIONAL DE SINDICATOS DE CONDUCTORES DE TAXIS</option>
+<option value="125004">125004 - O.S. YACIMIENTOS CARBONIFEROS</option>
+<option value="125103">125103 - O.S. DE LOS PROFESIONALES UNIVERSITARIOS DEL AGUA Y LA ENERGIA ELECTRICA</option>
+<option value="125202">125202 - O.S. DE CAPITANES, PILOTOS Y PATRONES DE PESCA ( VER 000505)</option>
+<option value="125301">125301 - O.S. FEDERAL DE LA FEDERACION DE TRABAJADORES OBRAS SANITARIAS</option>
+<option value="125400">125400 - O.S.PARA EL PERSONAL DE OBRAS Y SERVICIOS SANITARIOS (VER 001003)</option>
+<option value="125509">125509 - O.S. DE LA FEDERACION ARGENTINA DEL TRABAJADOR DE LAS UNIVERSIDADES NACIONALES</option>
+<option value="125608">125608 - O.S. DEL PERSONAL SUPERIOR DE LA INDUSTRIA DEL GAS Y AFINES</option>
+<option value="125707">125707 - O.S.UNION PERSONAL DE LA UNION DE TRABAJADORES CIVIL DE LA NACION</option>
+<option value="125806">125806 - O.S. DEL PERSONAL JERARQUICO DEL AGUA Y LA ENERGIA</option>
+<option value="125905">125905 - O.S. ARBITROS DEPORTIVOS DE LA REPUBLICA ARGENTINA</option>
+<option value="126007">126007 - O.S. DE LA FEDERACION GREMIAL DE LA INDUSTRIA DE LA CARNE Y SUS DERIVADOS</option>
+<option value="126106">126106 - O.S. DE LOS TRABAJADORES DE LA EDUCACION PRIVADA</option>
+<option value="126205">126205 - O.S. DE LOS EMPLEADOS DE COMERCIO Y ACTIVIDADES CIVILES</option>
+<option value="126304">126304 - O.S. BANCARIA ARGENTINA</option>
+<option value="126403">126403 - O.S. MEDICA AVELLANEDA</option>
+<option value="126502">126502 - O.S. DE LA CONFEDERACION DE OBREROS Y EMPLEADOS MUNICIPALES ARGENTINA ( O.S.C.O.E.M.A)</option>
+<option value="126601">126601 - O.S. DEL PERSONAL DE INDUSTRIAS QUIMICAS Y PETROQUIMICAS DE ZARATE CAMPANA</option>
+<option value="126700">126700 - O.S. DEL PERSONAL DE LA ACTIVIDAD AZUCARERA TUCUMANA</option>
+<option value="126809">126809 - O.S. DE CONDUCT.DE REMISES Y AUTOS AL INSTANTE Y AFINES</option>
+<option value="126908">126908 - OBRA SOCIAL DE LOS MEDICOS DE LA CIUDAD DE BUENOS AIRES</option>
+<option value="127000">127000 - OBRA SOCIAL DE TRABAJADORES DE ESTACIONES DE SERVICIO (OSTES)</option>
+<option value="127109">127109 - OBRA SOCIAL DEL PERSONAL DE TELECOMUNICACIONES SINDICATO BUENOS AIRES (OSPETELCO)</option>
+<option value="127208">127208 - O.S. DE MANDOS MEDIOS DE TELECOMUNICACIONES EN LA REPUBLICA ARGENTINA Y MERCOSUR (OSMMEDT)</option>
+<option value="127307">127307 - O.S. DE TRABAJADORES VIALES Y AFINES DE LA REPUBLICA ARGENTINA</option>
+<option value="127406">127406 - O.S. DE OBREROS Y EMPLEADOS TINTOREROS, SOMBREREROS Y LAVAD. R.A.</option>
+<option value="127505">127505 - O.S. DE EMPLEADOS DE FARMACIA</option>
+<option value="200103">200103 - O.S. DE LA SECRETARIA DE AGRICULTURA, GANADERIA Y PESCA</option>
+<option value="200202">200202 - O.S. CENTRO REGIONAL DE AGUAS SUBTERRANEAS</option>
+<option value="200301">200301 - OBRA SOCIAL DE LAS SECRETARIAS DE INDUSTRIA Y COMERCIO EXTERIOR, COMERCIO INTERIOR Y MINERIA</option>
+<option value="200400">200400 - O.S.DEL PERSONAL DE LA EMPRESA NACIONAL DE CORREOS Y TELEGRAFOS S.A. Y DE LAS COMUNICACIONES DE LA REPUBLICA ARGENTINA</option>
+<option value="200509">200509 - O.S. DEL MINISTERIO DE DEFENSA</option>
+<option value="200608">200608 - O.S. FLOTA FLUVIAL DEL ESTADO ARGENTINO</option>
+<option value="200707">200707 - O.S. GAS DEL ESTADO</option>
+<option value="200806">200806 - DIRECCION GENERAL DE O.S. DEL MINISTERIO DEL INTERIOR</option>
+<option value="200905">200905 - O.S. DEL MINISTERIO DE JUSTICIA</option>
+<option value="201007">201007 - OS DE EMPRESA LINEAS MARITIMAS ARGENTINAS</option>
+<option value="201106">201106 - DIRECCION GENERAL DE O.S. DEL MINISTERIO DE RELACIONES EXTERIORES Y CULTO</option>
+<option value="201205">201205 - O.S. DEL MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS</option>
+<option value="201304">201304 - DIRECCION DE O.S. DE LA EMPRESA NACIONAL DE TELECOMUNICACIONES</option>
+<option value="201403">201403 - O.S. DE LA UNIVERSIDAD DE BUENOS ARIES</option>
+<option value="201502">201502 - O.S. DIRECCION NACIONAL DE VIALIDAD</option>
+<option value="201700">201700 - O.S. YACIMIENTOS CARBONIFEROS FISCALES</option>
+<option value="201809">201809 - O.S. YACIMIENTOS PETROLIFEROS FISCALES</option>
+<option value="201908">201908 - INSTITUTO NACIONAL DE OBRAS SOCIALES PARA EL PERSONAL DE LA ADMINISTRACION PUBLICA NACIONAL Y SUS ENTES AUTARQUICOS Y DESCENTRALIZADOS</option>
+<option value="300100">300100 - O.S. ANILSUD</option>
+<option value="300308">300308 - O.S. BOROQUIMICA S.A.M.I.C.A.F.</option>
+<option value="300407">300407 - O.S. DE LA EMPRESA PRIVADA CELULOSA ARGENTINA S.A.</option>
+<option value="300506">300506 - O.S. CORPORACION CEMENTERA ARGENTINA</option>
+<option value="300605">300605 - O.S. DEL PERSONAL DE CERAMICA SAN LORENZO</option>
+<option value="300704">300704 - O.S. CERAS JOHNSON</option>
+<option value="300803">300803 - O.S. CALILEGUA S.A.A.I.C.</option>
+<option value="301004">301004 - O.S. DESTILERIAS SAN IGNACIO S.A.I.C.</option>
+<option value="301103">301103 - O.S. DUNLOP ARGENTINA LIMITADA</option>
+<option value="301202">301202 - O.S. DUPERIAL ORBEA</option>
+<option value="301301">301301 - O.S. COMPAÑÍA EMBOTELLADORA ARGENTINA</option>
+<option value="301400">301400 - O.S. ELECTROCLOR S.C.A.</option>
+<option value="301509">301509 - O.S. MUTUALIDAD EMPLEADOS FIRESTONE</option>
+<option value="301608">301608 - O.S. AUTOLATINA ARGENTINA S.A.</option>
+<option value="301707">301707 - O.S. DE ALLIED DOMECD ARGENTINA. S.A ( ANTERIOR DENOMINACION O.S. HIRAN WALKER S.A )</option>
+<option value="301806">301806 - O.S. SOCIEDAD MINERA HIERRO PATAGONICOS DE SIERRA GRANDE</option>
+<option value="301905">301905 - O.S. DE SERVICIOS ASISTENCIALES DE LA COMPAÑÍA ITALO ARGENTINA DE ELECTRICIDAD</option>
+<option value="302007">302007 - O.S. INGENIO RIO GRANDE S.A.</option>
+<option value="302106">302106 - O.S. PARA DIRECTIVOS, TECNICOS Y EMPLEADOS DE JOHN DEERE ARGENTINA</option>
+<option value="302205">302205 - O.S. LEDESMA S.A.A.I.</option>
+<option value="302304">302304 - O.S. COMPAÑÍA MINERA AGUILAR S.A.</option>
+<option value="302403">302403 - O.S. MOLINOS RIO DE LA PLATA</option>
+<option value="302502">302502 - O.S. PASA PETROQUIMICA ARGENTINA S.A.</option>
+<option value="302601">302601 - O.S. COOPERATIVA DE ASISTENCIA MUTUA Y TURISMO DEL PERSONAL DE LAS SOCIEDADES PIRELLI LIMITADA</option>
+<option value="302700">302700 - O.S. COMPAÑÍA QUIMICA S.A.</option>
+<option value="302809">302809 - O.S. REFINERIAS DE MAIZ S.A.I.C.F.</option>
+<option value="302908">302908 - DIRECCION GENERAL DE SERVICIOS ASISTENCIALES DE SERVICIOS ELECTRICOS DEL GRAN BUENOS AIRES</option>
+<option value="303000">303000 - O.S. SULFACID S.A.I.F.Y C.</option>
+<option value="303109">303109 - O.S. SUPERCO</option>
+<option value="303208">303208 - O.S. EMPRESA PRIVADA WITCEL S.A.</option>
+<option value="303307">303307 - O.S. CABOT ARGENTINA</option>
+<option value="303406">303406 - O.S. DEL PERSONAL DE SHELL - CAPSA</option>
+<option value="303505">303505 - O.S. DEL PERSONAL DE LA COMPANIA GENERAL DE COMBUSTIBLES S.A.</option>
+<option value="303604">303604 - O.S. DE IPAKO S.A.</option>
+<option value="303703">303703 - O.S. DEL PERSONAL DE PBBPOLISUR DE BAHIA BLANCA</option>
+<option value="303802">303802 - O.S. DE ARBITRO DEL FUTBOL ARGENTINO</option>
+<option value="303901">303901 - O.S. DE FORD ARGENTINA S.A.</option>
+<option value="304003">304003 - O.S. DE VOLKSWAGEN ARGENTINA S.A.</option>
+<option value="400107">400107 - O.S. DEL PERSONAL DE DIRECCION DE LAS EMPRESAS DE LA ALIMENTACION Y DEMAS ACTIVIDADES EMPRESARIAS</option>
+<option value="400206">400206 - O.S. DEL PERSONAL DE DIRECCION DE LA INDUSTRIA AUTOMOTRIZ ARGENTINA</option>
+<option value="400305">400305 - O.S. COOPERATIVA LIMITADA DE ASISTENCIA MEDICA, FARMACEUTICA, CREDITO Y CONSUMO DEL PERSONAL SUPERIOR DE LA INDUSTRIA DEL CAUCHO Y OTRAS ACTIVIDADES INDUSTRIALES</option>
+<option value="400404">400404 - O.S. DEL PERSONAL DE DIRECCION DE LA INDUSTRIA CERVECERA Y MALTERA</option>
+<option value="400503">400503 - O.S. ASOCIACION DEL PERSONAL DE DIRECCION Y JERERQUICO DE LA INDUSTRIA DEL CIGARRILLO</option>
+<option value="400602">400602 - O.S. DEL PERSONAL DIRECTIVO DE LA INDUSTRIA DE LA CONSTRUCCION</option>
+<option value="400701">400701 - O.S. CAMARA DE LA INDUSTRIA CURTIDORA ARGENTINA</option>
+<option value="400800">400800 - O.S. DE EJECUTIVOS Y DEL PERSONAL DE DIRECCION DE EMPRESAS</option>
+<option value="400909">400909 - O.S. ACCION SOCIAL DE EMPRESARIOS</option>
+<option value="401001">401001 - O.S. DEL PERSONAL DE DIRECCION DE LAS EMPRESAS QUE ACTUAN EN FRUTOS DEL PAIS</option>
+<option value="401100">401100 - O.S. DEL PERSONAL DE DIRECCION ALFREDO FORTABAT</option>
+<option value="401209">401209 - O.S. DEL PERSONAL DE DIRECCION DE LA INDUSTRIA METALURGICA Y DEMAS ACTIVIDADES EMPRESARIAS</option>
+<option value="401308">401308 - O.S. PARA EL PERSONAL DE DIRECCION DE LA INDUSTRIA MADERERA</option>
+<option value="401407">401407 - O.S. PARA EL PERSONAL DE DIRECCION DE LA ACTIVIDAD MINERA</option>
+<option value="401506">401506 - ASOCIACION DE PRESTACIONES SOCIALES PARA EMPRESARIOS Y PERSONAL DE DIRECCION DE EMPRESAS DE LA PRODUCCION, INDUSTRIA, COMERCIO Y SERVICIOS</option>
+<option value="401605">401605 - O.S. DEL PERSONAL DE DIRECCION DE LA INDUSTRIA PRIVADA DEL PETROLEO</option>
+<option value="401704">401704 - O.S. DE DIRECTIVOS Y EMPRESARIOS PEQUEÑOS Y MEDIANOS</option>
+<option value="401803">401803 - O.S. ASOCIACION MUTUAL DEL PERSONAL DE PHILIPS ARGENTINA (AMPAR)</option>
+<option value="401902">401902 - O.S. DEL PERSONAL DE DIRECCION DE PERFUMERIAS E. W. HOPE</option>
+<option value="402004">402004 - O.S. DEL PERSONAL DE DIRECCION DE LA SANIDAD LUIS PASTEUR</option>
+<option value="402103">402103 - O.S. ASOCIACION DEL PERSONAL DE DIRECCION DE LA INDUSTRIA SIDERURGICA</option>
+<option value="402202">402202 - O.S. MUTUALIDAD INDUSTRIAL TEXTIL ARGENTINA</option>
+<option value="402301">402301 - O.S. ASOCIACION DEL PERSONAL SUPERIOR DE LA ORGANIZACIÓN TECHINT</option>
+<option value="402400">402400 - O.S. PARA EL PERSONAL DE DIRECCION DE LA INDUTRIA VITIVINICOLA Y AFINES</option>
+<option value="402509">402509 - O.S. YPF</option>
+<option value="402608">402608 - O.S. ASOCIACION DE SERVICIOS SOCIALES PARA EMPRESARIOS Y PERSONAL DE DIRECCION DE EMPRESAS DEL COMERCIO, SERVICIOS, PRODUCCION, INDUSTRIA Y CIVIL (ASPE)</option>
+<option value="402707">402707 - O.S. DE DIRECCION OSDO</option>
+<option value="402806">402806 - O.S. DE DIRECCION DE LA ACTIVIDAD AEROCOMERCIAL PRIVADA</option>
+<option value="402905">402905 - O.S. DE DIRECCION WITCEL</option>
+<option value="500104">500104 - INSTITUTO DE SERVICIOS SOCIALES BANCARIOS</option>
+<option value="500203">500203 - INSTITUTO DE OBRA SOCIAL</option>
+<option value="500302">500302 - INSTITUTO DE SERVICIOS SOCIALES PARA EL PERSONAL DE LA INDUSTRIA DE LA CARNE Y AFINES</option>
+<option value="500401">500401 - O.S. PARA EMPLEADOS DE COMERCIO Y ACTIVIDADES CIVILES</option>
+<option value="500500">500500 - O.S. PARA LA ACTIVIDAD DOCENTE</option>
+<option value="500609">500609 - INSTITUTO DE SERVICIOS SOCIALES PARA EL PERSONAL FERROVIARIO</option>
+<option value="500708">500708 - INSTITUTO DE OS PARA EL PERSONAL DEL MINISTERIO DE ECONOMIA Y DE OBRA Y SERVICIOS PUBLICOS</option>
+<option value="500807">500807 - INSTITUTO NACIONAL DE SERVICIOS SOCIALES PARA JUBILADOS Y PENSIONADOS</option>
+<option value="500906">500906 - O.S. PARA EL PERSONAL DE OBRAS SANITARIAS DE LA NACION</option>
+<option value="501107">501107 - INSTITUTO DE SERVICIOS SOCIALES PARA LAS ACTIVIDADES RURALES Y AFINES</option>
+<option value="501206">501206 - INSTITUTO DE SERVICIOS SOCIALES PARA EL PERSONAL DE SEGUROS, REASEGUROS, CAPITALIZACION Y AHORRO Y PRESTAMO PARA LA VIVIENDA</option>
+<option value="501404">501404 - INSTITUTO DE SERVICIOS SOCIALES PARA EL TERRITORIO NACIONAL DE TIERRA DEL FUEGO, ANTARTIDA E ISLAS DEL ATLANTICO SUR</option>
+<option value="501503">501503 - INSTITUTO DE SERVICIOS SOCIALES PARA EL PERSONAL DE LA INDUSTRIA DEL VIDRIO Y AFINES</option>
+<option value="600200">600200 - ASOCIACIÓN REGIONAL BARILOCHE DE OBRAS SOCIALES</option>
+<option value="600309">600309 - ASOCIACIÓN DE OBRAS SOCIALES DE BELLA VISTA</option>
+<option value="600408">600408 - ASOCIACIÓN DE OBRAS SOCIALES DE COMODORO RIVADAVIA</option>
+<option value="602305">602305 - ASOCIACIÓN DE OBRAS SOCIALES DE ROSARIO</option>
+<option value="602701">602701 - ASOCIACIÓN DE OBRAS SOCIALES DE SAN JUAN</option>
+<option value="603100">603100 - ASOCIACIÓN DE OBRAS SOCIALES DE TRELEW</option>
+<option value="700108">700108 - O.S. DEL PERSONAL MUNICIPAL DE AVELLANEDA</option>
+<option value="700801">700801 - O.S. DEL PERSONAL MUNICIPAL DE LA MATANZA</option>
+<option value="701002">701002 - O.S. DEL PERSONAL MUNICIPAL DE TRES DE FEBRERO</option>
+<option value="701101">701101 - O.S. DEL PERSONAL MUNICIPAL DE SANTIAGO DEL ESTERO</option>
+<option value="701200">701200 - O.S. TRABAJADORES MUNICIPALES DE GRAL. PUEYRREDON</option>
+<option value="800105">800105 - O.S. ATANOR S.A. MIXTA</option>
+<option value="800204">800204 - O.S. FORJA ARGENTINA S.A.I.C.</option>
+<option value="800303">800303 - O.S. PAPEL MISIONERO S.A.I.F. Y C.</option>
+<option value="800402">800402 - O.S. PETROQUIMICA GENERAL MOSCÓN</option>
+<option value="800501">800501 - O.S. DE ACEROS PARANA</option>
+<option value="900102">900102 - O.S. FIAT</option></select>
+    </div>
+    <div class="os-sub">
+      <div>
+        <div class="row"><label>Cantidad de adherentes:</label><input id="adherentes" class="box small num" type="number" value="0"></div>
+        <div class="row"><label>Aporte Adicional:</label><input id="aporteAdicionalOS" class="box mid num" type="text" value="0,00"></div>
+        <div class="row"><label>Base Diferencial de Aporte:</label><input id="baseDifOSAporte" class="box mid num" type="text" value="0,00" readonly></div>
+      </div>
+      <div>
+        <div class="row"><label>Contribución Adicional:</label><input id="contribAdicionalOS" class="box mid num" type="text" value="0,00"></div>
+        <div class="row"><label>Base Diferencial de Contribución:</label><input id="baseDifOSContrib" class="box mid num" type="text" value="0,00" readonly></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Parámetros de cálculo interno</legend>
+    <div class="calc-grid">
+      <div>
+        <div class="row"><label>Remuneración remunerativa:</label><input id="remRemun" class="box mid num" type="text" value=""></div>
+        <div class="row"><label>No remunerativos:</label><input id="remNoRem" class="box mid num" type="text" value="0,00"></div>
+        <div class="row"><label>Factor jornada:</label><input id="factorJornada" class="box small num" type="text" value="1,00"></div>
+        <div class="row"><label>Régimen detracción:</label>
+          <select id="tipoDetraccion" class="long">
+            <option value="general" selected>General - 7.003,68</option>
+            <option value="especial">Especial - 17.509,20</option>
+          </select>
+        </div>
+        <div class="row"><label>Mes con SAC:</label><input id="mesSac" type="checkbox"></div>
+        <div class="row"><label>Tipo obra social para FSR:</label>
+          <select id="tipoOS" class="long">
+            <option value="sindical" selected>Sindical</option>
+            <option value="direccion">Dirección / Jerárquico</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="row"><label>ART variable (%):</label><input id="artPct" class="box small num" type="text" value="3,237"></div>
+        <div class="row"><label>ART cuota fija:</label><input id="artFija" class="box mid num" type="text" value="1624,00"></div>
+        <div class="row"><label>SCVO prima:</label><input id="scvoPrima" class="box mid num" type="text" value="334,67"></div>
+        <div class="row"><label>Derecho emisión anual:</label><input id="scvoDerecho" class="box mid num" type="text" value="12,00"></div>
+        <div class="row"><label>Base imponible mínima:</label><input id="topeMin" class="box mid num" type="text" value="124481,49"></div>
+        <div class="row"><label>Base imponible máxima:</label><input id="topeMax" class="box mid num" type="text" value="4045590,45"></div>
+      </div>
+    </div>
+    <div class="notes">
+      La página replica la presentación de las capturas y autocalcula las bases imponibles desde la remuneración remunerativa, los no remunerativos, la jornada, los días trabajados y el régimen seleccionado. Los campos de modalidad de contratación, condición y siniestrado se cargan con los códigos incorporados.
+    </div>
+  </fieldset>
+
+  <div class="actions">
+<button id="btnImprimir">Imprimir reporte</button>
+<button id="btnExportar">Exportar JSON</button>
+  </div>
+
+  <fieldset>
+    <legend>Resultado del costo laboral</legend>
+    <table class="result-table" id="tablaAportes"></table>
+    <div class="spacer"></div>
+    <table class="result-table" id="tablaContrib"></table>
+    <div class="summary-box">
+      <div class="sum-card"><div class="t">Total aportes trabajador</div><div class="v" id="totalAportes">$ 0,00</div><div class="muted">Jubilación + PAMI + salud + adicionales</div></div>
+      <div class="sum-card"><div class="t">Total contribuciones empleador</div><div class="v" id="totalContrib">$ 0,00</div><div class="muted">Seguridad social + obra social + ART + SCVO</div></div>
+      <div class="sum-card"><div class="t">Costo laboral total</div><div class="v" id="costoLaboral">$ 0,00</div><div class="muted">Remuneración bruta + contribuciones</div></div>
+    </div>
+    <div class="notes" id="notas"></div>
+  </fieldset>
+</div>
+
+<script>
+const MODALIDADES = [["000", "Contrato Modalidad Promovida. Reducción 0%"], ["001", "A tiempo parcial: indeterminado/permanente"], ["002", "Becarios - Residencias médicas Ley 22.127"], ["003", "De aprendizaje Ley 25.013"], ["004", "Especial de Fomento del Empleo. Ley 24.465"], ["005", "Fomento del empleo. Leyes 24.013 y 24.465"], ["006", "Lanzamiento nueva actividad. Idem 005"], ["007", "Período de prueba. Leyes 24.465 y 25.013"], ["008", "A tiempo completo indeterminado / Trabajo permanente"], ["009", "Práctica laboral para jóvenes"], ["010", "Pasantías. Ley 25.165. Decreto 340/92"], ["011", "Trabajo de temporada"], ["012", "Trabajo eventual"], ["013", "Trabajo formación"], ["014", "Nuevo período de prueba"], ["015", "Puesto nuevo varones y mujeres de 25 a 44 años"], ["016", "Nuevo período de prueba trabajador discapacitado Art. 34 Ley 24.147"], ["017", "Puesto nuevo menor de 25 años, varones y mujeres de 45 o más años y mujer jefe de familia"], ["018", "Trabajador discapacitado Art. 34 Ley 24.147"], ["019", "Puesto nuevo. Varones y mujeres de 25 a 44 años. Art. 34 Ley 24.147"], ["020", "Puesto nuevo menor de 25 años, varones y mujeres de 45 o más y mujer jefe de familia. Art. 34 Ley 24.147"], ["021", "A tiempo parcial determinado (contrato a plazo fijo)"], ["022", "A tiempo completo determinado (contrato a plazo fijo)"], ["023", "Personal no permanente Ley 22.248"], ["024", "Personal de la Construcción Ley 22.250"], ["025", "Empleo público provincial"], ["026", "Beneficiario de programa de empleo, capacitación y de recuperación productiva"], ["027", "Pasantías Decreto 1.227/01"], ["028", "Programas jefes y jefas de hogar"], ["029", "Decreto 1212/03 Aportante autónomo"], ["030", "Nuevo período de prueba trabajador discapacitado Art. 87 Ley 24.013"], ["031", "Trabajador discapacitado Art. 87 Ley 24.013"], ["032", "Período de prueba Art. 6 Ley 25.877"], ["033", "Período de prueba Art. 6 Ley 25.877. Beneficiarios de planes Jefes y Jefas de hogar"], ["034", "Período de prueba Art. 6 Ley 25.877. Art. 34 Ley 24.147"], ["035", "Período de prueba Art. 6 Ley 25.877. Art. 34 Ley 24.147. Beneficiarios de planes Jefes y Jefas de hogar"], ["036", "Período de prueba Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013"], ["037", "Período de prueba Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013. Beneficiarios de planes Jefes y Jefas de hogar"], ["038", "Puesto nuevo Art. 6 Ley 25.877"], ["039", "Puesto nuevo Art. 6 Ley 25.877. Beneficiarios de planes Jefes y Jefas de hogar"], ["040", "Puesto nuevo Art. 6 Ley 25.877. Art. 34 Ley 24.147"], ["041", "Puesto nuevo Art. 6 Ley 25.877. Art. 34 Ley 24.147. Beneficiarios de planes Jefes y Jefas de hogar"], ["042", "Puesto nuevo Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013"], ["043", "Puesto nuevo Art. 6 Ley 25.877. Trabajador discapacitado Art. 87 Ley 24.013. Beneficiarios de planes Jefes y Jefas de hogar"], ["044", "Changa Solidaria. CCT 62/75"], ["045", "Personal no permanente hoteles. Art. 68 CCT 362/03"], ["046", "Planta transitoria Adm. Pública Nacional, Provincial y/o Municipal"], ["047", "Representación gremial"], ["048", "Art. 4 Ley 24.241. Traslado temporario desde el exterior o convenios bilaterales de Seguridad Social"], ["050", "Contrato Modalidad Promovida. Reducción 50%"], ["062", "Actor - Intérprete en Empleador Contratante Ley 27.203 - sin obra social"], ["063", "Acciones de Entrenamiento para el Trabajo - Res. 1107/2022"], ["065", "A tiempo indeterminado / Trabajo permanente discontinuo"], ["095", "Planes Ministerio de Trabajo"], ["096", "Plan Trabajadores por San Luis Ley 5411"], ["097", "Programa Trabajo para Jóvenes Tucumanos"], ["098", "BONUS - Segunda Oportunidad"], ["099", "LRT (Directores SA, municipios, org. cent./descent., emp. mixtas, docentes privados o públicos)"], ["100", "Contrato Modalidad Promovida. Reducción 100%"], ["101", "Pre-SIJP (anterior a 07/1994)"], ["102", "Empleado Servicio Eventual en Usuaria Dto. 762"], ["103", "Retiro voluntario - Decreto 263/2018 y otros"], ["110", "Trabajo permanente prestación continua Ley 26.727"], ["111", "Trabajo temporario Ley 26.727"], ["112", "Trabajo permanente discontinuo Ley 26.727"], ["113", "Trabajo por equipo o cuadrilla familiar Ley 26.727"], ["114", "Trabajo temporario con reducción Ley 26.727"], ["115", "Trabajo permanente discontinuo con reducción Ley 26.727"], ["201", "Puesto nuevo Art. 16 Ley 26.476 - beneficio primeros 12 meses"], ["202", "Puesto nuevo Art. 16 Ley 26.476 - trabajador discapacitado Art. 34 Ley 24.147"], ["301", "Art. 19 Ley 26.940. Tiempo indeterminado"], ["302", "Art. 19 Ley 26.940. Trabajador discapacitado art. 34 L 24.147. Tiempo indeterminado"], ["303", "Art. 19 Ley 26.940. Trabajador discapacitado art. 87 L 24.013. Tiempo indeterminado"], ["304", "Art. 19 Ley 26.940. Tiempo parcial. Art. 92 ter LCT"], ["305", "Art. 19 Ley 26.940. Trabajador discapacitado art. 34 L 24.147. Tiempo parcial"], ["306", "Art. 19 Ley 26.940. Trabajador discapacitado art. 87 L 24.013. Tiempo parcial"], ["307", "Art. 24 Ley 26.940. Hasta 15 empleados. Primeros 12 meses. Tiempo indeterminado"], ["501", "Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["502", "Puesto Nuevo Art. 2 inc. b Decreto 493/2021"], ["503", "Tiempo parcial. Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["504", "Tiempo parcial. Puesto Nuevo Art. 2 inc. b Decreto 493/2021"], ["505", "Discapacitado Ley 24.013 y Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["506", "Discapacitado Ley 24.013 y Tiempo parcial Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["507", "Trabajo permanente prestación continua Ley 26.727. Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["508", "Trabajo permanente prestación continua Ley 26.727. Puesto Nuevo Art. 2 inc. b Decreto 493/2021"], ["509", "Trabajo permanente discontinuo Ley 26.727. Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["510", "Trabajo permanente discontinuo Ley 26.727. Puesto Nuevo Art. 2 inc. b Decreto 493/2021"], ["511", "Personal de la Construcción Ley 22.250. Puesto Nuevo Art. 2 inc. a Decreto 493/2021"], ["512", "Personal de la Construcción Ley 22.250. Puesto Nuevo Art. 2 inc. b Decreto 493/2021"], ["601", "Plazo indeterminado a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["602", "Plazo indeterminado a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["603", "Plazo fijo a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["604", "Plazo fijo a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["605", "Trabajo de temporada a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["606", "Trabajo de temporada a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["607", "Trabajador agrario permanente prestación continua a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["608", "Trabajador agrario permanente prestación continua a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["609", "Trabajador agrario permanente discontinuo a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["610", "Trabajador agrario permanente discontinuo a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["611", "Trabajo agrario temporario a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["612", "Trabajo agrario temporario a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["613", "Personal de la Construcción a tiempo completo. Art. 2 Dec. 551/22 y 1085/24. Reducción 100%"], ["614", "Personal de la Construcción a tiempo parcial. Art. 2 Dec. 551/22 y 1085/24. Reducción 50%"], ["701", "Regularización personal no registrado. Art. 77 Ley 27.742"], ["702", "Regularización personal no registrado. Art. 77 Ley 27.742. Micro y Pequeñas Empresas / ESFL"], ["703", "Regularización personal no registrado. Art. 77 Ley 27.742. Medianas Empresas Tramo 1 y 2"]];
+const CONDICIONES = [["01", "Servicios Comunes. Mayor de 18 años"], ["02", "Jubilado"], ["03", "Menor"], ["04", "Menor anterior"], ["05", "Servicios Diferenciados Mayor de 18 años"], ["06", "Sin Servicios Reales"], ["07", "Medida de no innovar. Servicios Comunes"], ["08", "Medida de no innovar. Servicios Diferenciados"]];
+const SINIESTRADOS = [["00", "No incapacitado"], ["01", "Incapacidad Laboral Temporaria (ILT)"], ["02", "Incapacidad Laboral Permanente Parcial Provisoria (ILPPP)"], ["03", "Incapacidad Laboral Permanente Parcial Definitiva (ILPPD)"], ["04", "Incapacidad Laboral Permanente Total Provisoria (ILPTP)"], ["05", "Capital de Recomposición. Punto 3, Artículo 15 Ley 24.557"]];
+const SITUACIONES = [["01", "Activo"], ["05", "Licencia por maternidad"], ["06", "Suspensiones otras causales"], ["09", "Suspendido. Ley 20.744 Art. 223 Bis"], ["10", "Licencia por excedencia"], ["11", "Licencia por maternidad Down"], ["12", "Licencia por vacaciones"], ["13", "Licencia sin goce de haberes"], ["14", "Reserva de puesto"], ["15", "E.S.E. Cese transitorio de servicios"], ["16", "Personal siniestrado de terceros"], ["17", "Reingreso por disposición judicial"]];
+
+function q(id) { return document.getElementById(id); }
+function parseAr(v) {
+  if (typeof v === 'number') return v;
+  const s = String(v ?? '').trim();
+  if (!s) return 0;
+  if (s.includes('.') && s.includes(',')) return Number(s.replace(/\./g,'').replace(',','.')) || 0;
+  if (s.includes(',')) return Number(s.replace(',','.')) || 0;
+  return Number(s) || 0;
+}
+function fmt(n) {
+  return new Intl.NumberFormat('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number.isFinite(n) ? n : 0);
+}
+function money(n) { return '$ ' + fmt(n); }
+function setAr(id, n) { q(id).value = fmt(n); }
+function selectedText(id) {
+  const s = q(id);
+  return s.options[s.selectedIndex]?.text || '';
+}
+function isRural() {
+  const act = q('actividad').value;
+  const mod = q('modalidad').value;
+  return act === '097' || ['110','111','112','113','114','115','507','508','509','510','607','608','609','610','611','612'].includes(mod);
+}
+function isJubilado() {
+  return q('condicion').value === '02';
+}
+function employerGroup() {
+  return q('tipoEmpleador').value === '2' ? 'A' : 'B';
+}
+function autoBases() {
+  const remRemun = parseAr(q('remRemun').value);
+  const remNoRem = parseAr(q('remNoRem').value);
+  const dias = parseAr(q('diasTrabajados').value) || 30;
+  const factor = Math.max(parseAr(q('factorJornada').value) || 1, 0.01);
+  const topeMax = parseAr(q('topeMax').value);
+  const jub = isJubilado();
+
+  const remBruta = remRemun + remNoRem;
+  const topeMaxProp = topeMax * (dias / 30);
+  const fullTimeEq = factor > 0 ? (remRemun / factor) : remRemun;
+
+  const rem1 = Math.min(remRemun, topeMaxProp);
+  const rem2 = remRemun;
+  const rem3 = remRemun;
+  const rem4 = jub ? 0 : Math.min(fullTimeEq, topeMaxProp);
+  const rem5 = jub ? 0 : Math.min(remRemun, topeMaxProp);
+  const rem6 = parseAr(q('baseDifAporte').value);
+  const rem7 = parseAr(q('baseDifContrib').value);
+  const rem8 = jub ? 0 : fullTimeEq;
+  const rem9 = remBruta;
+
+  let detBase = q('tipoDetraccion').value === 'especial' ? 17509.20 : 7003.68;
+  detBase *= factor;
+  if (dias < 30) detBase = (detBase / 30) * dias;
+  if (q('mesSac').checked) detBase *= 1.5;
+  const rem10 = Math.max(0, Math.max(rem2, rem3) - detBase);
+
+  setAr('remBruta', remBruta);
+  setAr('rem1', rem1);
+  setAr('rem2', rem2);
+  setAr('rem3', rem3);
+  setAr('rem4', rem4);
+  setAr('rem5', rem5);
+  setAr('rem6', rem6);
+  setAr('rem7', rem7);
+  setAr('rem8', rem8);
+  setAr('rem9', rem9);
+  setAr('rem10', rem10);
+  setAr('rem11', detBase);
+  setAr('baseDifOSAporte', Math.max(0, rem4 - remRemun));
+  setAr('baseDifOSContrib', Math.max(0, rem8 - remRemun));
+}
+function calcular() {
+
+  const remBruta = parseAr(q('remBruta').value);
+  const rem1 = parseAr(q('rem1').value);
+  const rem2 = parseAr(q('rem2').value);
+  const rem3 = parseAr(q('rem3').value);
+  const rem4 = parseAr(q('rem4').value);
+  const rem5 = parseAr(q('rem5').value);
+  const rem6 = parseAr(q('rem6').value);
+  const rem7 = parseAr(q('rem7').value);
+  const rem8 = parseAr(q('rem8').value);
+  const rem9 = parseAr(q('rem9').value);
+  const rem10 = parseAr(q('rem10').value);
+
+  const grupo = employerGroup();
+  const actividad = q('actividad').value;
+  const rural = isRural();
+  const jub = isJubilado();
+  const modalidad = q('modalidad').value;
+  const modLrt099 = modalidad === '099';
+  const sinOS = q('obraSocial').value === '000000';
+  const tipoOS = q('tipoOS').value;
+  const artPct = parseAr(q('artPct').value) / 100;
+  const artFija = parseAr(q('artFija').value);
+  const scvo = q('scvo').checked ? (parseAr(q('scvoPrima').value) + parseAr(q('scvoDerecho').value) / 12) : 0;
+  const aporteAdicPct = parseAr(q('aporteAdicPct').value) / 100;
+  const baseDifAporte = parseAr(q('baseDifAporte').value);
+  const contribDifPct = parseAr(q('contribDifPct').value) / 100;
+  const baseDifContrib = parseAr(q('baseDifContrib').value);
+  const aporteAdicionalOS = parseAr(q('aporteAdicionalOS').value);
+  const contribAdicionalOS = parseAr(q('contribAdicionalOS').value);
+  const baseDifLrt = parseAr(q('baseDifLrt').value);
+
+  let alicSipa = grupo === 'A' ? 0.1235 : 0.1077;
+  let alicPamiPat = grupo === 'A' ? 0.0157 : 0.0159;
+  let alicAaff = grupo === 'A' ? 0.054 : 0.047;
+  let alicFne = grupo === 'A' ? 0.0108 : 0.0094;
+
+  // Regla solicitada por el usuario:
+  // Actividad 097 = Trabajador Agrario => FNE en 0
+  if (actividad === '097') {
+    alicFne = 0;
+  }
+
+  const umbral = 2400;
+  let pctOSA=0, pctFSRA=0, pctOSC=0, pctFSRC=0;
+  if (!sinOS && !jub) {
+    if (tipoOS === 'sindical') {
+      pctOSA = rem4 > umbral ? 0.85 : 0.90;
+      pctOSC = rem8 > umbral ? 0.85 : 0.90;
+    } else {
+      pctOSA = rem4 > umbral ? 0.80 : 0.85;
+      pctOSC = rem8 > umbral ? 0.80 : 0.85;
+    }
+    pctFSRA = 1 - pctOSA;
+    pctFSRC = 1 - pctOSC;
+  }
+
+  const apJub = modLrt099 ? 0 : rem1 * 0.11;
+  const apPami = (!jub && !sinOS) ? rem5 * 0.03 : 0;
+  const apOSBase = (!jub && !sinOS) ? rem4 * 0.03 : 0;
+  const apOSFsr = apOSBase * pctFSRA;
+  const apOSNeta = apOSBase * pctOSA;
+  const apAdic = rem6 * aporteAdicPct;
+  const apSepelio = (rural && !jub) ? rem2 * 0.015 : 0;
+  const apOSTotal = apOSBase + aporteAdicionalOS;
+  const totalAportes = apJub + apPami + apOSTotal + apAdic + apSepelio;
+
+  const coSipa = rem10 * alicSipa;
+  const coPami = (!jub) ? rem10 * alicPamiPat : 0;
+  const coAaff = rem10 * alicAaff;
+  const coFne = rem10 * alicFne;
+  const coOsBase = (!jub && !sinOS) ? rem8 * 0.06 : 0;
+  const coOsFsr = coOsBase * pctFSRC;
+  const coOsNeta = coOsBase * pctOSC;
+  const coOsTotal = coOsBase + contribAdicionalOS;
+  const coDif = rem7 * contribDifPct;
+  const coRenatre = (rural && !jub) ? rem2 * 0.015 : 0;
+  const coJubAnt = rural ? rem2 * 0.02 : 0;
+  const artVar = (rem9 + baseDifLrt) * artPct;
+  const artTotal = artVar + artFija;
+  const totalContrib = coSipa + coPami + coAaff + coFne + coOsTotal + coDif + coRenatre + coJubAnt + artTotal + scvo;
+
+  const costoLaboral = remBruta + totalContrib;
+  const netoEstimado = remBruta - totalAportes;
+
+  q('tablaAportes').innerHTML = `
+    <thead><tr><th colspan="4">Aportes del trabajador</th></tr><tr><th>Concepto</th><th>Base</th><th>Alícuota</th><th>Importe</th></tr></thead>
+    <tbody>
+      <tr><td>Jubilación / SIPA</td><td class="num">${fmt(rem1)}</td><td class="num">${modLrt099 ? '0,00%' : '11,00%'}</td><td class="num">${money(apJub)}</td></tr>
+      <tr><td>INSSJyP</td><td class="num">${fmt(rem5)}</td><td class="num">${jub || sinOS ? '0,00%' : '3,00%'} </td><td class="num">${money(apPami)}</td></tr>
+      <tr><td>Obra social</td><td class="num">${fmt(rem4)}</td><td class="num">${jub || sinOS ? '0,00%' : '3,00%'} </td><td class="num">${money(apOSBase)}</td></tr>
+      <tr><td>FSR derivado del aporte OS</td><td class="num">${fmt(rem4)}</td><td class="num">${fmt((pctFSRA||0)*100)}%</td><td class="num">${money(apOSFsr)}</td></tr>
+      <tr><td>Aporte neto a la obra social</td><td class="num">${fmt(rem4)}</td><td class="num">${fmt((pctOSA||0)*100)}%</td><td class="num">${money(apOSNeta)}</td></tr>
+      <tr><td>Aporte adicional obra social</td><td class="num">-</td><td class="num">-</td><td class="num">${money(aporteAdicionalOS)}</td></tr>
+      <tr><td>Aporte diferencial</td><td class="num">${fmt(rem6)}</td><td class="num">${fmt(aporteAdicPct*100)}%</td><td class="num">${money(apAdic)}</td></tr>
+      <tr><td>Seguro de sepelio UATRE</td><td class="num">${fmt(rem2)}</td><td class="num">${rural && !jub ? '1,50%' : '0,00%'} </td><td class="num">${money(apSepelio)}</td></tr>
+      <tr><td><strong>Total aportes</strong></td><td class="num"> </td><td class="num"> </td><td class="num"><strong>${money(totalAportes)}</strong></td></tr>
+    </tbody>`;
+
+  q('tablaContrib').innerHTML = `
+    <thead><tr><th colspan="4">Contribuciones del empleador</th></tr><tr><th>Concepto</th><th>Base</th><th>Alícuota</th><th>Importe</th></tr></thead>
+    <tbody>
+      <tr><td>SIPA patronal</td><td class="num">${fmt(rem10)}</td><td class="num">${fmt(alicSipa*100)}%</td><td class="num">${money(coSipa)}</td></tr>
+      <tr><td>INSSJyP patronal</td><td class="num">${fmt(rem10)}</td><td class="num">${fmt((jub?0:alicPamiPat)*100)}%</td><td class="num">${money(coPami)}</td></tr>
+      <tr><td>Asignaciones familiares</td><td class="num">${fmt(rem10)}</td><td class="num">${fmt(alicAaff*100)}%</td><td class="num">${money(coAaff)}</td></tr>
+      <tr><td>FNE</td><td class="num">${fmt(rem10)}</td><td class="num">${fmt(alicFne*100)}%</td><td class="num">${money(coFne)}</td></tr>
+      <tr><td>Obra social</td><td class="num">${fmt(rem8)}</td><td class="num">${jub || sinOS ? '0,00%' : '6,00%'} </td><td class="num">${money(coOsBase)}</td></tr>
+      <tr><td>FSR derivado contribución OS</td><td class="num">${fmt(rem8)}</td><td class="num">${fmt((pctFSRC||0)*100)}%</td><td class="num">${money(coOsFsr)}</td></tr>
+      <tr><td>Contribución neta a la obra social</td><td class="num">${fmt(rem8)}</td><td class="num">${fmt((pctOSC||0)*100)}%</td><td class="num">${money(coOsNeta)}</td></tr>
+      <tr><td>Contribución adicional obra social</td><td class="num">-</td><td class="num">-</td><td class="num">${money(contribAdicionalOS)}</td></tr>
+      <tr><td>Contribución diferencial</td><td class="num">${fmt(rem7)}</td><td class="num">${fmt(contribDifPct*100)}%</td><td class="num">${money(coDif)}</td></tr>
+      <tr><td>RENATRE</td><td class="num">${fmt(rem2)}</td><td class="num">${rural && !jub ? '1,50%' : '0,00%'} </td><td class="num">${money(coRenatre)}</td></tr>
+      <tr><td>Jubilación anticipada agraria</td><td class="num">${fmt(rem2)}</td><td class="num">${rural ? '2,00%' : '0,00%'} </td><td class="num">${money(coJubAnt)}</td></tr>
+      <tr><td>ART variable</td><td class="num">${fmt(rem9 + baseDifLrt)}</td><td class="num">${fmt(artPct*100)}%</td><td class="num">${money(artVar)}</td></tr>
+      <tr><td>ART cuota fija</td><td class="num">-</td><td class="num">-</td><td class="num">${money(artFija)}</td></tr>
+      <tr><td>SCVO</td><td class="num">-</td><td class="num">-</td><td class="num">${money(scvo)}</td></tr>
+      <tr><td><strong>Total contribuciones</strong></td><td class="num"> </td><td class="num"> </td><td class="num"><strong>${money(totalContrib)}</strong></td></tr>
+    </tbody>`;
+
+  q('totalAportes').textContent = money(totalAportes);
+  q('totalContrib').textContent = money(totalContrib);
+  q('costoLaboral').textContent = money(costoLaboral);
+
+  const notas = [];
+  notas.push(`Neto estimado antes de impuesto a las ganancias: <strong>${money(netoEstimado)}</strong>.`);
+  notas.push(`Grupo de empleador aplicado: <strong>${grupo}</strong>. Rem. 10 calculada sobre <strong>${money(rem10)}</strong> luego de detraer <strong>${money(parseAr(q('rem11').value))}</strong>.`);
+  if (rural) notas.push(`Actividad agraria detectada: se agregan <strong>RENATRE 1,50%</strong>, <strong>Seguro de Sepelio UATRE 1,50%</strong> y <strong>Jubilación anticipada 2,00%</strong>.`);
+  if (actividad === '097') notas.push(`Para la <strong>Actividad 097 - Trabajador Agrario</strong>, esta versión fuerza la alícuota de <strong>FNE a 0,00%</strong>.`);
+  if (jub) notas.push(`Condición jubilado: se dejan en cero INSSJyP y Obra Social del trabajador y del empleador en esta simulación.`);
+  notas.push(`Bases imponibles en <strong>modo manual</strong>: Rem. Bruta y Rem. 1 a 11 se toman exactamente como fueron editadas en pantalla.`);
+  if (q('obraSocial').value === '000000') notas.push(`Se seleccionó sin obra social; por eso salud y FSR se muestran en cero.`);
+  q('notas').innerHTML = notas.join('<br>');
+  window.__ultimoCalculo = {
+    trabajador: {
+      cuil: q('cuil').value,
+      nombre: q('apellidoNombre').value,
+      situacion: selectedText('situacion'),
+      condicion: selectedText('condicion'),
+      actividad: selectedText('actividad'),
+      modalidad: selectedText('modalidad'),
+      siniestrado: selectedText('siniestrado'),
+      localidad: selectedText('localidad')
+    },
+    bases: {
+      remBruta, rem1, rem2, rem3, rem4, rem5, rem6, rem7, rem8, rem9, rem10, detraccion: parseAr(q('rem11').value)
+    },
+    totales: {
+      totalAportes, totalContribuciones: totalContrib, costoLaboral, netoEstimado
+    }
+  };
+}
+
+function cargarEjemplo() {
+  q('cuil').value = '';
+  q('apellidoNombre').value = '';
+  q('conyuge').checked = true;
+  q('trabCct').checked = true;
+  q('hijos').value = 1;
+  q('scvo').checked = false;
+  q('reduccion').checked = false;
+  q('tipoEmpleador').value = '1';
+  q('tipoOperacion').value = 0;
+  q('baseDifLrt').value = '0,00';
+  q('situacion').value = '01';
+  q('condicion').value = '05';
+  q('actividad').value = '097';
+  q('modalidad').value = '110';
+  q('siniestrado').value = '00';
+  q('localidad').value = '07';
+  q('situacionP1').value = '01';
+  q('situacionP2').value = '-';
+  q('situacionP3').value = '-';
+  q('diaInicio1').value = 1;
+  q('diaInicio2').value = 0;
+  q('diaInicio3').value = 0;
+  q('maternidad').value = '0,00';
+  q('diasTrabajados').value = 30;
+  q('horasTrabajadas').value = 0;
+  q('aporteAdicPct').value = '0,00';
+  q('baseDifAporte').value = '0,00';
+  q('contribDifPct').value = '2,00';
+  q('baseDifContrib').value = '0,00';
+  q('obraSocial').value = '119302';
+  q('adherentes').value = 0;
+  q('aporteAdicionalOS').value = '0,00';
+  q('contribAdicionalOS').value = '0,00';
+  q('remRemun').value = '1880334,32';
+  q('remNoRem').value = '0,00';
+  q('factorJornada').value = '1,00';
+  q('tipoDetraccion').value = 'general';
+  q('mesSac').checked = false;
+  q('tipoOS').value = 'sindical';
+  q('artPct').value = '3,237';
+  q('artFija').value = '1624,00';
+  q('scvoPrima').value = '334,67';
+  q('scvoDerecho').value = '12,00';
+  q('topeMin').value = '124481,49';
+  q('topeMax').value = '4045590,45';
+  calcular();
+}
+
+q('btnImprimir').addEventListener('click', () => {
+  calcular();
+  window.print();
+});
+
+q('btnExportar').addEventListener('click', () => {
+  calcular();
+  const blob = new Blob([JSON.stringify(window.__ultimoCalculo, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'liquidacion-931-costo-laboral.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.querySelectorAll('input, select').forEach(el => {
+  el.addEventListener('change', calcular);
+  if (el.type !== 'checkbox') el.addEventListener('input', () => {
+    if (!['cuil','apellidoNombre'].includes(el.id)) calcular();
+  });
+});
+function inicializarPeriodo() {
+  const selMes = q('periodoMes');
+  const selAnio = q('periodoAnio');
+  if (selMes && !selMes.options.length) {
+    const opBlankMes = document.createElement('option');
+    opBlankMes.value = '';
+    opBlankMes.textContent = '';
+    opBlankMes.selected = true;
+    selMes.appendChild(opBlankMes);
+    for (let m = 1; m <= 12; m++) {
+      const op = document.createElement('option');
+      op.value = String(m).padStart(2, '0');
+      op.textContent = String(m).padStart(2, '0');
+      selMes.appendChild(op);
+    }
+  }
+  if (selAnio && !selAnio.options.length) {
+    const opBlankAnio = document.createElement('option');
+    opBlankAnio.value = '';
+    opBlankAnio.textContent = '';
+    opBlankAnio.selected = true;
+    selAnio.appendChild(opBlankAnio);
+    for (let y = 1995; y <= 2900; y++) {
+      const op = document.createElement('option');
+      op.value = String(y);
+      op.textContent = String(y);
+      selAnio.appendChild(op);
+    }
+  }
+}
+
+inicializarPeriodo();
+calcular();
+</script>
+</body>
+</html>
